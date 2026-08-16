@@ -1,8 +1,9 @@
 /**
- * stud.io Pomodoro & Web Audio Soundscape Focus Studio Module
+ * stud.io Pomodoro & Web Audio Soundscape Focus Studio Module (WWDC27 Edition)
  */
 class PomodoroModule {
   renderPomodoro(containerEl) {
+    const I = window.StudioIcons || {};
     this.timerSeconds = 25 * 60;
     this.initialSeconds = 25 * 60;
     this.timerInterval = null;
@@ -10,7 +11,7 @@ class PomodoroModule {
 
     containerEl.innerHTML = `
       <div class="module-header">
-        <h2>⏱️ Pomodoro & Synthesized Soundscape Studio</h2>
+        <h2>Pomodoro & Synthesized Soundscape Studio</h2>
         <p>Customizable deep work focus timer integrated with Web Audio synthesized rain, cafe, and binaural alpha waves.</p>
       </div>
 
@@ -25,8 +26,14 @@ class PomodoroModule {
 
           <div class="svg-timer-container">
             <svg class="timer-svg" width="260" height="260">
-              <circle cx="130" cy="130" r="110" stroke="rgba(255,255,255,0.08)" stroke-width="12" fill="none"/>
-              <circle id="timer-progress-ring" cx="130" cy="130" r="110" stroke="#8b5cf6" stroke-width="12" fill="none" stroke-dasharray="691" stroke-dashoffset="0" stroke-linecap="round"/>
+              <circle cx="130" cy="130" r="110" stroke="rgba(255,255,255,0.06)" stroke-width="12" fill="none"/>
+              <circle id="timer-progress-ring" cx="130" cy="130" r="110" stroke="url(#timer-gradient)" stroke-width="12" fill="none" stroke-dasharray="691" stroke-dashoffset="0" stroke-linecap="round"/>
+              <defs>
+                <linearGradient id="timer-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#c084fc" />
+                  <stop offset="100%" stop-color="#38bdf8" />
+                </linearGradient>
+              </defs>
             </svg>
 
             <div class="timer-display-overlay">
@@ -36,41 +43,66 @@ class PomodoroModule {
           </div>
 
           <div class="timer-controls">
-            <button id="btn-pomo-start" class="btn-primary btn-large">▶️ Start Session</button>
-            <button id="btn-pomo-reset" class="btn-secondary">🔄 Reset</button>
+            <button id="btn-pomo-start" class="btn-primary btn-large">
+              ${I.play ? I.play("", 18) : ""}
+              <span id="pomo-start-text">Start Session</span>
+            </button>
+            <button id="btn-pomo-reset" class="btn-secondary">
+              ${I.rotate ? I.rotate("", 18) : ""}
+              <span>Reset</span>
+            </button>
           </div>
         </div>
 
         <!-- Right: Web Audio Soundscape Controls -->
         <div class="soundscape-panel glass-panel">
-          <h3>🎵 Synthesized Web Audio Soundscapes</h3>
-          <p>Real-time audio synthesized natively in your browser without external media downloads.</p>
+          <div class="card-title-row">
+            <div class="card-icon-title">
+              ${I.music ? I.music("icon-cyan", 20) : ""}
+              <h3>Synthesized Web Audio Soundscapes</h3>
+            </div>
+            <span class="badge-accent">Native Audio Synthesis</span>
+          </div>
+
+          <p class="soundscape-desc">Real-time frequencies synthesized directly in your browser without network audio streaming.</p>
 
           <div class="soundscape-grid">
             <div class="sound-card" data-sound="rain">
-              <span class="sound-icon">🌧️</span>
+              <div class="sound-icon-box">
+                ${I.cloudRain ? I.cloudRain("icon-cyan", 24) : ""}
+              </div>
               <strong>Rain Ambiance</strong>
-              <small>Pink noise filter</small>
+              <small>Lowpass filtered pink noise</small>
             </div>
+
             <div class="sound-card" data-sound="binaural">
-              <span class="sound-icon">🧠</span>
+              <div class="sound-icon-box">
+                ${I.brain ? I.brain("icon-purple", 24) : ""}
+              </div>
               <strong>10Hz Alpha Waves</strong>
-              <small>Focus beat offset</small>
+              <small>Phase offset focus beat</small>
             </div>
+
             <div class="sound-card" data-sound="lofi">
-              <span class="sound-icon">🌌</span>
+              <div class="sound-icon-box">
+                ${I.music ? I.music("icon-amber", 24) : ""}
+              </div>
               <strong>Deep Space Lo-Fi</strong>
               <small>Warm triangle wave</small>
             </div>
           </div>
 
           <div class="volume-slider-row">
-            <span>🔊 Volume:</span>
+            <div class="volume-label">
+              ${I.volume ? I.volume("icon-muted", 16) : ""}
+              <span>Master Volume</span>
+            </div>
             <input type="range" id="soundscape-volume" min="0" max="1" step="0.05" value="0.3"/>
           </div>
 
           <button id="btn-stop-soundscape" class="btn-secondary full-width">
-            ⏹️ Stop All Soundscapes
+            ${I.stop ? I.stop("", 14) : ""}
+            <span>Mute All Soundscapes</span>
           </button>
         </div>
       </div>
@@ -80,6 +112,7 @@ class PomodoroModule {
     const modeBtns = containerEl.querySelectorAll(".mode-btn");
     const displayTime = containerEl.querySelector("#pomo-display-time");
     const ring = containerEl.querySelector("#timer-progress-ring");
+    const startText = containerEl.querySelector("#pomo-start-text");
 
     modeBtns.forEach(btn => {
       btn.addEventListener("click", () => {
@@ -97,7 +130,7 @@ class PomodoroModule {
         if (this.isRunning) {
           clearInterval(this.timerInterval);
           this.isRunning = false;
-          containerEl.querySelector("#btn-pomo-start").innerText = "▶️ Start Session";
+          startText.innerText = "Start Session";
         }
       });
     });
@@ -107,7 +140,7 @@ class PomodoroModule {
     btnStart.addEventListener("click", () => {
       if (!this.isRunning) {
         this.isRunning = true;
-        btnStart.innerText = "⏸️ Pause Session";
+        startText.innerText = "Pause Session";
 
         this.timerInterval = setInterval(() => {
           this.timerSeconds--;
@@ -122,14 +155,14 @@ class PomodoroModule {
           if (this.timerSeconds <= 0) {
             clearInterval(this.timerInterval);
             this.isRunning = false;
-            btnStart.innerText = "▶️ Start Session";
-            alert("🔔 Focus session complete! Take a 5-minute break.");
+            startText.innerText = "Start Session";
+            alert("Focus session complete! Take a 5-minute break.");
           }
         }, 1000);
       } else {
         clearInterval(this.timerInterval);
         this.isRunning = false;
-        btnStart.innerText = "▶️ Resume Session";
+        startText.innerText = "Resume Session";
       }
     });
 
@@ -141,7 +174,7 @@ class PomodoroModule {
       const m = String(Math.floor(this.timerSeconds / 60)).padStart(2, "0");
       displayTime.innerText = `${m}:00`;
       ring.style.strokeDashoffset = "0";
-      btnStart.innerText = "▶️ Start Session";
+      startText.innerText = "Start Session";
     });
 
     // Soundscapes

@@ -1,5 +1,5 @@
 /**
- * stud.io Central SPA Controller & Navigation Router
+ * stud.io Central SPA Controller & Navigation Router (WWDC27 Edition)
  */
 class StudioApp {
   constructor() {
@@ -18,7 +18,7 @@ class StudioApp {
   }
 
   init() {
-    console.log("⚡ stud.io App initializing...");
+    console.log("stud.io App initializing with WWDC27 Spatial Glass System...");
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has("dashboard") || urlParams.has("app")) {
       this.renderAppShell();
@@ -58,26 +58,60 @@ class StudioApp {
   }
 
   renderAppShell() {
+    const I = window.StudioIcons || {};
+
     this.rootEl.innerHTML = `
       <div class="app-shell">
         <!-- Sidebar -->
         <aside class="app-sidebar">
-          <div class="logo-area">
-            <span class="logo-icon">🚀</span>
+          <div class="logo-area" id="logo-home-btn" style="cursor: pointer;">
+            <div class="logo-icon-box">
+              ${I.rocket ? I.rocket("icon-purple", 24) : ""}
+            </div>
             <span class="logo-text gradient-text">stud.io</span>
           </div>
 
           <nav class="nav-menu">
-            <a class="nav-item active" data-tab="pattern">📊 Pattern Intelligence</a>
-            <a class="nav-item" data-tab="notebook">🎙️ NotebookLM Studio</a>
-            <a class="nav-item" data-tab="duolingo">🎮 Duolingo Track</a>
-            <a class="nav-item" data-tab="activerecall">🧠 Active Recall Suite</a>
-            <a class="nav-item" data-tab="pomodoro">⏱️ Pomodoro Studio</a>
-            <a class="nav-item" data-tab="neuro">🧠 NeuroAdapt Dashboard</a>
-            <a class="nav-item" data-tab="notes">📝 Running Notes</a>
-            <a class="nav-item" data-tab="exam">📝 Exam Simulator</a>
-            <a class="nav-item" data-tab="vault">📚 Digital Library</a>
-            <a class="nav-item" data-tab="extra">🌟 Beyond-Syllabus</a>
+            <a class="nav-item active" data-tab="pattern">
+              ${I.chart ? I.chart("nav-icon", 18) : ""}
+              <span>Pattern Intelligence</span>
+            </a>
+            <a class="nav-item" data-tab="notebook">
+              ${I.mic ? I.mic("nav-icon", 18) : ""}
+              <span>NotebookLM Studio</span>
+            </a>
+            <a class="nav-item" data-tab="duolingo">
+              ${I.gamepad ? I.gamepad("nav-icon", 18) : ""}
+              <span>Duolingo Track</span>
+            </a>
+            <a class="nav-item" data-tab="activerecall">
+              ${I.brain ? I.brain("nav-icon", 18) : ""}
+              <span>Active Recall Suite</span>
+            </a>
+            <a class="nav-item" data-tab="pomodoro">
+              ${I.timer ? I.timer("nav-icon", 18) : ""}
+              <span>Pomodoro Studio</span>
+            </a>
+            <a class="nav-item" data-tab="neuro">
+              ${I.zap ? I.zap("nav-icon", 18) : ""}
+              <span>NeuroAdapt Profile</span>
+            </a>
+            <a class="nav-item" data-tab="notes">
+              ${I.notes ? I.notes("nav-icon", 18) : ""}
+              <span>Running Notes</span>
+            </a>
+            <a class="nav-item" data-tab="exam">
+              ${I.exam ? I.exam("nav-icon", 18) : ""}
+              <span>Exam Simulator</span>
+            </a>
+            <a class="nav-item" data-tab="vault">
+              ${I.vault ? I.vault("nav-icon", 18) : ""}
+              <span>Digital Library</span>
+            </a>
+            <a class="nav-item" data-tab="extra">
+              ${I.sparkles ? I.sparkles("nav-icon", 18) : ""}
+              <span>Beyond-Syllabus</span>
+            </a>
           </nav>
         </aside>
 
@@ -85,13 +119,24 @@ class StudioApp {
         <main class="app-main">
           <!-- Top Navbar -->
           <header class="top-navbar">
-            <div class="user-badge">
-              <span>🌍 ${this.userState.country} (${this.userState.board.toUpperCase()})</span>
+            <div class="user-badge glass-panel">
+              ${I.globe ? I.globe("icon-cyan", 16) : ""}
+              <span><strong>${this.userState.country}</strong> (${this.userState.board.toUpperCase()})</span>
             </div>
+
             <div class="top-stats">
-              <div class="stat-pill streak">🔥 ${this.userState.streak} Days</div>
-              <div class="stat-pill xp">⚡ ${this.userState.xp} XP</div>
-              <div class="stat-pill hearts">❤️ ${this.userState.hearts}/5</div>
+              <div class="stat-pill streak">
+                ${I.flame ? I.flame("icon-amber", 16) : ""}
+                <span><strong>${this.userState.streak}</strong> Days</span>
+              </div>
+              <div class="stat-pill xp">
+                ${I.zap ? I.zap("icon-purple", 16) : ""}
+                <span><strong>${this.userState.xp}</strong> XP</span>
+              </div>
+              <div class="stat-pill hearts">
+                ${I.heart ? I.heart("icon-rose", 16) : ""}
+                <span><strong>${this.userState.hearts}/5</strong></span>
+              </div>
             </div>
           </header>
 
@@ -100,6 +145,11 @@ class StudioApp {
         </main>
       </div>
     `;
+
+    // Logo returns to landing page
+    this.rootEl.querySelector("#logo-home-btn").addEventListener("click", () => {
+      this.renderLandingPage();
+    });
 
     // Sidebar Tab Listeners
     const navItems = this.rootEl.querySelectorAll(".nav-item");
@@ -158,4 +208,3 @@ if (document.readyState === "loading") {
 } else {
   initStudioApp();
 }
-

@@ -1,4 +1,94 @@
-/* stud.io WWDC27 Edition Unified Bundle */
+/* stud.io WWDC27 Spatial Glass Edition Unified Bundle */
+
+/* File: utils/icons.js */
+/**
+ * stud.io Premium SVG Icon System (WWDC27 Apple Design Standard)
+ * Vector icons replacing all raw emojis across the platform.
+ */
+window.StudioIcons = {
+  rocket: (cls = "", size = 20) => `<svg class="studio-icon ${cls}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>`,
+  
+  sparkles: (cls = "", size = 20) => `<svg class="studio-icon ${cls}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>`,
+
+  flame: (cls = "", size = 20) => `<svg class="studio-icon ${cls}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>`,
+
+  zap: (cls = "", size = 20) => `<svg class="studio-icon ${cls}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`,
+
+  heart: (cls = "", size = 20) => `<svg class="studio-icon ${cls}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>`,
+
+  brain: (cls = "", size = 20) => `<svg class="studio-icon ${cls}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-4.54Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-4.54Z"/></svg>`,
+
+  chart: (cls = "", size = 20) => `<svg class="studio-icon ${cls}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>`,
+
+  mic: (cls = "", size = 20) => `<svg class="studio-icon ${cls}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>`,
+
+  gamepad: (cls = "", size = 20) => `<svg class="studio-icon ${cls}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="10" y1="12" y2="12"/><line x1="8" x2="8" y1="10" y2="14"/><line x1="15" x2="15.01" y1="13" y2="13"/><line x1="18" x2="18.01" y1="11" y2="11"/><rect width="20" height="12" x="2" y="6" rx="6"/></svg>`,
+
+  timer: (cls = "", size = 20) => `<svg class="studio-icon ${cls}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="10" x2="14" y1="2" y2="2"/><line x1="12" x2="15" y1="14" y2="11"/><circle cx="12" cy="14" r="8"/></svg>`,
+
+  notes: (cls = "", size = 20) => `<svg class="studio-icon ${cls}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8Z"/><path d="M15 3v5h5"/><path d="M9 13h6"/><path d="M9 17h3"/></svg>`,
+
+  exam: (cls = "", size = 20) => `<svg class="studio-icon ${cls}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="m9 15 2 2 4-4"/></svg>`,
+
+  vault: (cls = "", size = 20) => `<svg class="studio-icon ${cls}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10"/><path d="M6 10h10"/><path d="M6 14h10"/></svg>`,
+
+  star: (cls = "", size = 20) => `<svg class="studio-icon ${cls}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`,
+
+  play: (cls = "", size = 20) => `<svg class="studio-icon ${cls}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>`,
+
+  pause: (cls = "", size = 20) => `<svg class="studio-icon ${cls}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>`,
+
+  rotate: (cls = "", size = 20) => `<svg class="studio-icon ${cls}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>`,
+
+  check: (cls = "", size = 20) => `<svg class="studio-icon ${cls}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>`,
+
+  x: (cls = "", size = 20) => `<svg class="studio-icon ${cls}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>`,
+
+  alert: (cls = "", size = 20) => `<svg class="studio-icon ${cls}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" x2="12" y1="9" y2="13"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg>`,
+
+  search: (cls = "", size = 20) => `<svg class="studio-icon ${cls}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>`,
+
+  globe: (cls = "", size = 20) => `<svg class="studio-icon ${cls}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>`,
+
+  target: (cls = "", size = 20) => `<svg class="studio-icon ${cls}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>`,
+
+  crown: (cls = "", size = 20) => `<svg class="studio-icon ${cls}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14"/></svg>`,
+
+  headphones: (cls = "", size = 20) => `<svg class="studio-icon ${cls}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/></svg>`,
+
+  code: (cls = "", size = 20) => `<svg class="studio-icon ${cls}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>`,
+
+  trendingUp: (cls = "", size = 20) => `<svg class="studio-icon ${cls}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>`,
+
+  music: (cls = "", size = 20) => `<svg class="studio-icon ${cls}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>`,
+
+  cloudRain: (cls = "", size = 20) => `<svg class="studio-icon ${cls}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="M16 14v6"/><path d="M8 14v6"/><path d="M12 16v6"/></svg>`,
+
+  volume: (cls = "", size = 20) => `<svg class="studio-icon ${cls}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>`,
+
+  radio: (cls = "", size = 20) => `<svg class="studio-icon ${cls}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"/></svg>`,
+
+  users: (cls = "", size = 20) => `<svg class="studio-icon ${cls}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+
+  cards: (cls = "", size = 20) => `<svg class="studio-icon ${cls}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>`,
+
+  chalkboard: (cls = "", size = 20) => `<svg class="studio-icon ${cls}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="14" x="3" y="3" rx="2"/><path d="M3 17h18"/><path d="m14 10-4 4"/></svg>`,
+
+  arrowRight: (cls = "", size = 20) => `<svg class="studio-icon ${cls}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>`,
+
+  arrowLeft: (cls = "", size = 20) => `<svg class="studio-icon ${cls}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>`,
+
+  trophy: (cls = "", size = 20) => `<svg class="studio-icon ${cls}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.45 1-1 1H8c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1h8c.55 0 1-.45 1-1v-1c0-.55-.45-1-1-1h-1c-.55 0-1-.45-1-1v-2.34"/><path d="M18 4H6v7a6 6 0 0 0 12 0V4Z"/></svg>`,
+
+  eye: (cls = "", size = 20) => `<svg class="studio-icon ${cls}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>`,
+
+  terminal: (cls = "", size = 20) => `<svg class="studio-icon ${cls}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg>`,
+
+  checkCircle: (cls = "", size = 20) => `<svg class="studio-icon ${cls}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`,
+
+  stop: (cls = "", size = 20) => `<svg class="studio-icon ${cls}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="currentColor"><rect width="14" height="14" x="5" y="5" rx="2"/></svg>`
+};
+
 
 /* File: data/syllabi.js */
 /**
@@ -1103,17 +1193,25 @@ window.soundscapeSynth = new SoundscapeSynth();
 
 /* File: modules/landingPage.js */
 /**
- * stud.io Landing Page Controller & Showcase Renderer
+ * stud.io Landing Page Controller & Showcase Renderer (WWDC27 Apple Design Standard)
+ * Clean vector iconography, spatial glass surfaces, and responsive interactive cards.
  */
 class LandingPageModule {
   renderLandingPage(containerEl, onLaunchApp) {
+    const I = window.StudioIcons || {};
+
     containerEl.innerHTML = `
       <section class="landing-hero">
-        <div class="landing-badge">✨ Powered by Pattern Intelligence & NeuroAdapt™ Neural Engine</div>
+        <div class="landing-badge">
+          ${I.sparkles ? I.sparkles("icon-gold", 16) : ""}
+          <span>Powered by Pattern Intelligence & NeuroAdapt™ Neural Engine</span>
+        </div>
+
         <h1 class="landing-title">
           The Only Study App <br/>
           <span class="gradient-text">You Will Ever Need.</span>
         </h1>
+
         <p class="landing-subtitle">
           Pre-downloaded past paper patterns, NotebookLM dual-host podcasts, Duolingo-style quest tracks, 
           and active recall built for students in the USA, India, UK, Pakistan, China, IB & beyond.
@@ -1121,13 +1219,18 @@ class LandingPageModule {
 
         <div class="landing-cta-group">
           <button id="btn-launch-app-hero" class="btn-primary btn-large">
-            🚀 Launch stud.io Onboarding
+            ${I.rocket ? I.rocket("", 18) : ""}
+            <span>Personalize with AI Onboarding</span>
           </button>
-          <button id="btn-direct-dashboard-hero" class="btn-secondary btn-large" style="background: rgba(139, 92, 246, 0.25); border-color: var(--accent-purple);">
-            ⚡ Enter Dashboard Directly
+
+          <button id="btn-direct-dashboard-hero" class="btn-secondary btn-large glow-btn">
+            ${I.zap ? I.zap("icon-accent", 18) : ""}
+            <span>Enter Dashboard Directly</span>
           </button>
+
           <a href="#features-section" class="btn-secondary btn-large">
-            🔍 Explore All Features
+            ${I.search ? I.search("", 18) : ""}
+            <span>Explore All Features</span>
           </a>
         </div>
 
@@ -1135,30 +1238,52 @@ class LandingPageModule {
         <div class="landing-preview-card glass-panel">
           <div class="preview-header">
             <div class="preview-dots"><span></span><span></span><span></span></div>
-            <div class="preview-badge">⚡ Live stud.io Neural Engine Demo</div>
+            <div class="preview-badge">
+              ${I.radio ? I.radio("icon-cyan", 14) : ""}
+              <span>Live NeuroAdapt™ Engine Active</span>
+            </div>
           </div>
+
           <div class="preview-body">
             <div class="preview-stats">
               <div class="stat-box">
-                <span class="stat-icon">🔥</span>
-                <div><strong id="demo-streak">14 Days</strong><small>Daily Streak</small></div>
+                <div class="stat-icon-wrapper flame-glow">
+                  ${I.flame ? I.flame("icon-amber", 24) : ""}
+                </div>
+                <div>
+                  <strong id="demo-streak">14 Days</strong>
+                  <small>Daily Streak</small>
+                </div>
               </div>
+
               <div class="stat-box">
-                <span class="stat-icon">⚡</span>
-                <div><strong id="demo-xp">2,450 XP</strong><small>Diamond League</small></div>
+                <div class="stat-icon-wrapper xp-glow">
+                  ${I.zap ? I.zap("icon-purple", 24) : ""}
+                </div>
+                <div>
+                  <strong id="demo-xp">2,450 XP</strong>
+                  <small>Diamond League</small>
+                </div>
               </div>
+
               <div class="stat-box">
-                <span class="stat-icon">🧠</span>
-                <div><strong id="demo-efficiency">94% Index</strong><small>NeuroAdapt Efficiency</small></div>
+                <div class="stat-icon-wrapper brain-glow">
+                  ${I.brain ? I.brain("icon-cyan", 24) : ""}
+                </div>
+                <div>
+                  <strong id="demo-efficiency">94% Index</strong>
+                  <small>NeuroAdapt Efficiency</small>
+                </div>
               </div>
             </div>
+
             <div class="preview-heatmap-row">
               <span class="heatmap-label">Calculus & Series Weightage:</span>
               <div class="mini-heatmap">
-                <div class="h-cell high" title="Taylor Series 18%">18%</div>
-                <div class="h-cell high" title="Lagrange Error 15%">15%</div>
-                <div class="h-cell med" title="Parametrics 12%">12%</div>
-                <div class="h-cell low" title="Limits 8%">8%</div>
+                <div class="h-cell high" title="Taylor Series 18%">18% High Yield</div>
+                <div class="h-cell high" title="Lagrange Error 15%">15% High Yield</div>
+                <div class="h-cell med" title="Parametrics 12%">12% Med</div>
+                <div class="h-cell low" title="Limits 8%">8% Low</div>
               </div>
             </div>
           </div>
@@ -1167,35 +1292,41 @@ class LandingPageModule {
 
       <!-- Global Country Presets Showcase -->
       <section class="landing-countries">
-        <h3>🌍 Pre-Downloaded Syllabi & Past Paper Patterns For 10+ Nations</h3>
+        <div class="section-title-badge">
+          ${I.globe ? I.globe("icon-cyan", 16) : ""}
+          <span>Global Coverage</span>
+        </div>
+        <h3>Pre-Downloaded Syllabi & Past Paper Patterns For 10+ Nations</h3>
+        <p class="section-subtitle">Click any educational system to instantly launch personalized study intelligence.</p>
+
         <div class="country-grid">
           <div class="country-card" data-country="USA">
-            <span class="flag">🇺🇸</span>
+            <div class="country-code-pill">US</div>
             <strong>USA (AP & SAT)</strong>
             <p>Calculus BC, AP Physics, SAT Digital</p>
           </div>
           <div class="country-card" data-country="IND">
-            <span class="flag">🇮🇳</span>
+            <div class="country-code-pill">IN</div>
             <strong>India (CBSE, JEE, NEET)</strong>
             <p>Class 12th Physics, JEE Mains, NEET Bio</p>
           </div>
           <div class="country-card" data-country="UK">
-            <span class="flag">🇬🇧</span>
+            <div class="country-code-pill">GB</div>
             <strong>UK (GCSE & A-Levels)</strong>
             <p>AQA Chemistry, Edexcel Math</p>
           </div>
           <div class="country-card" data-country="PAK">
-            <span class="flag">🇵🇰</span>
+            <div class="country-code-pill">PK</div>
             <strong>Pakistan (Matric & FSc)</strong>
             <p>Federal Board Biology & Chemistry</p>
           </div>
           <div class="country-card" data-country="CHN">
-            <span class="flag">🇨🇳</span>
-            <strong>China (Gaokao 高考)</strong>
+            <div class="country-code-pill">CN</div>
+            <strong>China (Gaokao)</strong>
             <p>Gaokao Higher Math & Science</p>
           </div>
           <div class="country-card" data-country="IB">
-            <span class="flag">🌐</span>
+            <div class="country-code-pill">IB</div>
             <strong>IB Diploma (HL / SL)</strong>
             <p>IB Physics HL, Math AA/AI</p>
           </div>
@@ -1204,41 +1335,57 @@ class LandingPageModule {
 
       <!-- Features Showcase Section -->
       <section id="features-section" class="landing-features">
+        <div class="section-title-badge">
+          ${I.sparkles ? I.sparkles("icon-purple", 16) : ""}
+          <span>Full Academic Suite</span>
+        </div>
         <h2>Everything A Student Needs <span class="gradient-text">In One Dashboard</span></h2>
 
         <div class="features-grid">
           <div class="feature-card glass-panel">
-            <div class="feature-icon">📊</div>
+            <div class="feature-icon-box">
+              ${I.chart ? I.chart("icon-purple", 28) : ""}
+            </div>
             <h3>10-Year Exam Pattern Intelligence</h3>
             <p>Visual topic frequency heatmaps, examiner pitfall decoders, and 95% probability predicted exam questions.</p>
           </div>
 
           <div class="feature-card glass-panel">
-            <div class="feature-icon">🎙️</div>
+            <div class="feature-icon-box">
+              ${I.mic ? I.mic("icon-cyan", 28) : ""}
+            </div>
             <h3>NotebookLM AI Audio Podcasts</h3>
             <p>Dual-host dialogue podcast breakdowns between AI tutors Alex & Maya with live synchronized transcript and chalkboard scripts.</p>
           </div>
 
           <div class="feature-card glass-panel">
-            <div class="feature-icon">🎮</div>
+            <div class="feature-icon-box">
+              ${I.gamepad ? I.gamepad("icon-emerald", 28) : ""}
+            </div>
             <h3>Duolingo Gamified Quest Track</h3>
             <p>XP rank leaderboards, 5-heart life system, daily streaks, audio listening cards, and speed-round quizzes.</p>
           </div>
 
           <div class="feature-card glass-panel">
-            <div class="feature-icon">🧠</div>
+            <div class="feature-icon-box">
+              ${I.brain ? I.brain("icon-amber", 28) : ""}
+            </div>
             <h3>Active Recall & Spaced Repetition</h3>
             <p>5-Box Leitner card decks, Feynman AI student feedback mentor, timed Blurting workspace, and Cornell notes.</p>
           </div>
 
           <div class="feature-card glass-panel">
-            <div class="feature-icon">⏱️</div>
+            <div class="feature-icon-box">
+              ${I.timer ? I.timer("icon-rose", 28) : ""}
+            </div>
             <h3>Pomodoro & Ambient Soundscapes</h3>
             <p>Web Audio synthesized rain, cafe, binaural 10Hz alpha waves, and deep space lo-fi study sounds.</p>
           </div>
 
           <div class="feature-card glass-panel">
-            <div class="feature-icon">🤖</div>
+            <div class="feature-icon-box">
+              ${I.zap ? I.zap("icon-purple", 28) : ""}
+            </div>
             <h3>NeuroAdapt™ Learning Neural Engine</h3>
             <p>Client-side MLP neural net that analyzes your running notes, detects concept confusion, and adapts lesson difficulty.</p>
           </div>
@@ -1247,9 +1394,12 @@ class LandingPageModule {
 
       <section class="landing-footer-cta">
         <h2>Ready To Transform Your Study Sprints?</h2>
-        <button id="btn-launch-app-footer" class="btn-primary btn-large">
-          ⚡ Get Started Now — It's Free
-        </button>
+        <div class="footer-btn-group">
+          <button id="btn-launch-app-footer" class="btn-primary btn-large">
+            ${I.rocket ? I.rocket("", 18) : ""}
+            <span>Launch stud.io — It's Free</span>
+          </button>
+        </div>
       </section>
     `;
 
@@ -1275,89 +1425,145 @@ window.landingPageModule = new LandingPageModule();
 
 /* File: modules/onboarding.js */
 /**
- * stud.io Onboarding & Multi-Agent Scanning Gateway Controller
+ * stud.io Onboarding & Multi-Agent Scanning Gateway Controller (WWDC27 Edition)
  */
 class OnboardingModule {
   renderOnboarding(containerEl, defaultCountry = "USA", onComplete) {
+    const I = window.StudioIcons || {};
     this.selectedCountry = defaultCountry;
     this.selectedBoard = "ap_calc_bc";
     this.selectedDifficulty = "Time Management & Complex Problem Solving";
 
     containerEl.innerHTML = `
       <div class="onboarding-overlay glass-panel">
-        <div class="onboarding-card">
+        <div class="onboarding-card glass-panel">
           <div class="onboarding-header">
+            <div class="onboarding-logo-badge">
+              ${I.rocket ? I.rocket("icon-purple", 22) : ""}
+              <span>stud.io Agent Setup</span>
+            </div>
             <h2>Welcome to <span class="gradient-text">stud.io</span></h2>
-            <p>Let's personalize your multi-agent AI study engine in 3 quick steps.</p>
+            <p>Personalize your multi-agent AI study engine in 3 simple steps.</p>
           </div>
 
           <div id="onboarding-step-content">
             <!-- Step 1: Country & Board -->
             <div class="step-pane active" id="step-1">
-              <h3>Step 1: Choose Your Country & Exam System</h3>
+              <div class="step-indicator">
+                <span class="step-num active">1</span>
+                <span class="step-line"></span>
+                <span class="step-num">2</span>
+                <span class="step-line"></span>
+                <span class="step-num">3</span>
+              </div>
+
+              <h3>Select Educational System & Syllabus</h3>
+              
               <div class="form-group">
-                <label>Select Country:</label>
+                <label>Country / Region:</label>
                 <select id="country-select" class="form-control">
-                  <option value="USA">🇺🇸 United States of America (AP / SAT / ACT)</option>
-                  <option value="IND">🇮🇳 India (CBSE / JEE Mains & Adv / NEET UG)</option>
-                  <option value="UK">🇬🇧 United Kingdom (GCSE / A-Levels)</option>
-                  <option value="PAK">🇵🇰 Pakistan (Federal Board / Punjab FSc)</option>
-                  <option value="CHN">🇨🇳 China (Gaokao 高考 High School Math)</option>
-                  <option value="IB">🌐 International Baccalaureate (IB Diploma HL/SL)</option>
+                  <option value="USA">United States of America (AP / SAT / ACT)</option>
+                  <option value="IND">India (CBSE / JEE Mains & Adv / NEET UG)</option>
+                  <option value="UK">United Kingdom (GCSE / A-Levels)</option>
+                  <option value="PAK">Pakistan (Federal Board / Punjab FSc)</option>
+                  <option value="CHN">China (Gaokao High School Math)</option>
+                  <option value="IB">International Baccalaureate (IB Diploma HL/SL)</option>
                 </select>
               </div>
 
               <div class="form-group">
-                <label>Select Exam Syllabus / Board Preset:</label>
+                <label>Target Exam Board / Curriculum:</label>
                 <select id="board-select" class="form-control">
                   <option value="ap_calc_bc">AP Calculus BC & Advanced Mathematics</option>
                   <option value="sat_math_rw">SAT Digital (Math & Digital R&W)</option>
                 </select>
               </div>
 
-              <button id="btn-next-1" class="btn-primary">Next: Difficulty Focus ➜</button>
+              <button id="btn-next-1" class="btn-primary full-width">
+                <span>Continue to Difficulty Focus</span>
+                ${I.arrowRight ? I.arrowRight("", 16) : ""}
+              </button>
             </div>
 
             <!-- Step 2: Difficulty Focus -->
             <div class="step-pane" id="step-2">
-              <h3>Step 2: What Do You Struggle With The Most?</h3>
-              <p>Our Multi-Agent Cluster and NeuroAdapt Neural Engine will tailor your daily quests based on this challenge.</p>
+              <div class="step-indicator">
+                <span class="step-num completed">${I.check ? I.check("", 12) : "1"}</span>
+                <span class="step-line completed"></span>
+                <span class="step-num active">2</span>
+                <span class="step-line"></span>
+                <span class="step-num">3</span>
+              </div>
+
+              <h3>What Do You Struggle With The Most?</h3>
+              <p class="step-desc">Our NeuroAdapt Engine will dynamically tailor your daily quest cards based on this focus area.</p>
               
               <div class="difficulty-grid">
                 <div class="diff-card selected" data-diff="Time Management & Speed">
-                  <span class="diff-icon">⏱️</span>
+                  <div class="diff-icon-box">
+                    ${I.timer ? I.timer("icon-rose", 22) : ""}
+                  </div>
                   <strong>Time Management & Speed</strong>
-                  <p>Running out of time on past paper exams</p>
+                  <p>Running out of time on past paper questions</p>
                 </div>
+
                 <div class="diff-card" data-diff="Complex Math & Formulas">
-                  <span class="diff-icon">📐</span>
+                  <div class="diff-icon-box">
+                    ${I.code ? I.code("icon-purple", 22) : ""}
+                  </div>
                   <strong>Complex Math & Formulas</strong>
-                  <p>Memorizing formulas and long derivation steps</p>
+                  <p>Memorizing long derivations and theorems</p>
                 </div>
+
                 <div class="diff-card" data-diff="Concept Clarity & Fundamentals">
-                  <span class="diff-icon">💡</span>
+                  <div class="diff-icon-box">
+                    ${I.brain ? I.brain("icon-cyan", 22) : ""}
+                  </div>
                   <strong>Concept Clarity & Fundamentals</strong>
-                  <p>Struggling to understand deep theoretical concepts</p>
+                  <p>Struggling with deep theoretical principles</p>
                 </div>
+
                 <div class="diff-card" data-diff="Exam Panic & Trap Questions">
-                  <span class="diff-icon">🎯</span>
+                  <div class="diff-icon-box">
+                    ${I.alert ? I.alert("icon-amber", 22) : ""}
+                  </div>
                   <strong>Exam Panic & Trap Questions</strong>
                   <p>Falling for tricky examiner trap questions</p>
                 </div>
               </div>
 
               <div class="btn-row">
-                <button id="btn-back-2" class="btn-secondary">⬅️ Back</button>
-                <button id="btn-next-2" class="btn-primary">Initialize AI Multi-Agents 🤖➜</button>
+                <button id="btn-back-2" class="btn-secondary">
+                  ${I.arrowLeft ? I.arrowLeft("", 16) : ""}
+                  <span>Back</span>
+                </button>
+                <button id="btn-next-2" class="btn-primary">
+                  <span>Initialize AI Multi-Agents</span>
+                  ${I.sparkles ? I.sparkles("", 16) : ""}
+                </button>
               </div>
             </div>
 
             <!-- Step 3: Multi-Agent Scanning Terminal -->
             <div class="step-pane" id="step-3">
-              <h3>Step 3: Multi-Agent Intelligence Ingestion</h3>
-              <p>Synthesizing 10 years of past exam papers and building your personalized Duolingo quest track...</p>
+              <div class="step-indicator">
+                <span class="step-num completed">${I.check ? I.check("", 12) : "1"}</span>
+                <span class="step-line completed"></span>
+                <span class="step-num completed">${I.check ? I.check("", 12) : "2"}</span>
+                <span class="step-line completed"></span>
+                <span class="step-num active">3</span>
+              </div>
+
+              <h3>Multi-Agent Intelligence Ingestion</h3>
+              <p class="step-desc">Mining 10 years of exam papers, parsing syllabus dependency trees, and synthesizing podcast scripts...</p>
 
               <div class="agent-terminal">
+                <div class="terminal-header">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                  <span class="terminal-title">AgentCluster Orchestrator Terminal</span>
+                </div>
                 <div class="terminal-logs" id="terminal-log-output">
                   <code>[System] Initializing stud.io Multi-Agent Engine...</code>
                 </div>
@@ -1367,8 +1573,9 @@ class OnboardingModule {
                 <div class="progress-bar-fill" id="agent-progress-fill"></div>
               </div>
 
-              <button id="btn-launch-dashboard" class="btn-primary hidden">
-                🌟 Enter stud.io Dashboard 🚀
+              <button id="btn-launch-dashboard" class="btn-primary full-width hidden">
+                ${I.rocket ? I.rocket("", 18) : ""}
+                <span>Enter stud.io Dashboard</span>
               </button>
             </div>
           </div>
@@ -1453,10 +1660,11 @@ window.onboardingModule = new OnboardingModule();
 
 /* File: modules/neuroDashboard.js */
 /**
- * stud.io NeuroAdapt Student Cognitive Profile Dashboard Module
+ * stud.io NeuroAdapt Student Cognitive Profile Dashboard Module (WWDC27 Edition)
  */
 class NeuroDashboardModule {
   renderDashboard(containerEl) {
+    const I = window.StudioIcons || {};
     const inputVec = window.neuroFeatureVector ? window.neuroFeatureVector.getNormalizedVector() : new Array(16).fill(0.8);
     const predictions = window.neuroNet ? window.neuroNet.predict(inputVec) : {
       auditoryPreferenceScore: 88,
@@ -1468,58 +1676,105 @@ class NeuroDashboardModule {
 
     containerEl.innerHTML = `
       <div class="module-header">
-        <h2>🧠 NeuroAdapt™ Cognitive Intelligence & Efficiency Profile</h2>
+        <h2>NeuroAdapt™ Cognitive Intelligence & Efficiency Profile</h2>
         <p>Continuous client-side MLP neural net tracking your learning style, response latency, note confusion, and memory decay.</p>
       </div>
 
       <div class="neuro-grid">
         <!-- Main Index Card -->
         <div class="neuro-card main-index glass-panel">
-          <h3>Overall Study Efficiency Index</h3>
+          <div class="card-title-row">
+            <div class="card-icon-title">
+              ${I.brain ? I.brain("icon-cyan", 22) : ""}
+              <h3>Study Efficiency Index</h3>
+            </div>
+            <span class="badge-yield">Cognitive Peak</span>
+          </div>
+
           <div class="efficiency-circle">
             <span class="eff-value">${predictions.overallEfficiencyIndex}%</span>
-            <small>Optimal Cognitive Peak</small>
+            <small>Optimal Retention</small>
           </div>
-          <p class="eff-status">🌟 Your memory retention and response latency are operating in the 94th percentile.</p>
+          <p class="eff-status">Your memory retention and response latency are operating in the 94th percentile across past paper solving.</p>
         </div>
 
         <!-- Learning Modality Card -->
         <div class="neuro-card glass-panel">
-          <h3>Learning Modality Weights</h3>
+          <div class="card-title-row">
+            <div class="card-icon-title">
+              ${I.chart ? I.chart("icon-purple", 22) : ""}
+              <h3>Learning Modality Weights</h3>
+            </div>
+          </div>
+
           <div class="modality-bars">
             <div class="mod-row">
-              <span>🎧 Auditory (Podcasts & Voice):</span>
+              <div class="mod-label">
+                ${I.headphones ? I.headphones("icon-cyan", 16) : ""}
+                <span>Auditory (Podcasts & Audio)</span>
+              </div>
               <div class="bar-bg"><div class="bar-fill cyan" style="width: ${predictions.auditoryPreferenceScore}%"></div></div>
-              <strong>${predictions.auditoryPreferenceScore}%</strong>
+              <strong class="mod-score">${predictions.auditoryPreferenceScore}%</strong>
             </div>
+
             <div class="mod-row">
-              <span>👁️ Visual (Diagrams & Blackboards):</span>
+              <div class="mod-label">
+                ${I.eye ? I.eye("icon-purple", 16) : ""}
+                <span>Visual (Diagrams & Chalkboard)</span>
+              </div>
               <div class="bar-bg"><div class="bar-fill purple" style="width: ${predictions.visualPreferenceScore}%"></div></div>
-              <strong>${predictions.visualPreferenceScore}%</strong>
+              <strong class="mod-score">${predictions.visualPreferenceScore}%</strong>
             </div>
+
             <div class="mod-row">
-              <span>🧩 Interactive (Quizzes & Flashcards):</span>
+              <div class="mod-label">
+                ${I.gamepad ? I.gamepad("icon-emerald", 16) : ""}
+                <span>Interactive (Quizzes & Flashcards)</span>
+              </div>
               <div class="bar-bg"><div class="bar-fill green" style="width: 85%"></div></div>
-              <strong>85%</strong>
+              <strong class="mod-score">85%</strong>
             </div>
           </div>
         </div>
 
         <!-- Neural Recommendations -->
         <div class="neuro-card glass-panel">
-          <h3>Neural Engine Recommendations</h3>
+          <div class="card-title-row">
+            <div class="card-icon-title">
+              ${I.sparkles ? I.sparkles("icon-amber", 22) : ""}
+              <h3>Neural Engine Recommendations</h3>
+            </div>
+          </div>
+
           <ul class="rec-list">
-            <li>
-              <strong>⏱️ Optimal Pomodoro Duration:</strong>
-              <span>${predictions.recommendedPomodoroMins} minutes focus / 10 minutes break</span>
+            <li class="rec-item">
+              <div class="rec-icon-box">
+                ${I.timer ? I.timer("icon-rose", 18) : ""}
+              </div>
+              <div>
+                <strong>Optimal Focus Sprint Duration:</strong>
+                <p>${predictions.recommendedPomodoroMins} minutes focus / 10 minutes restorative break</p>
+              </div>
             </li>
-            <li>
-              <strong>📅 Spaced Repetition Multiplier:</strong>
-              <span>${predictions.leitnerIntervalMultiplier}x interval boost (strong long-term memory)</span>
+
+            <li class="rec-item">
+              <div class="rec-icon-box">
+                ${I.cards ? I.cards("icon-purple", 18) : ""}
+              </div>
+              <div>
+                <strong>Spaced Repetition Multiplier:</strong>
+                <p>${predictions.leitnerIntervalMultiplier}x interval boost based on low decay rates</p>
+              </div>
             </li>
-            <li>
-              <strong>🎵 Recommended Soundscape:</strong>
-              <span>Binaural 10Hz Alpha Waves (enhances derivative problem solving)</span>
+
+            <li class="rec-item">
+              <div class="rec-icon-box">
+                ${I.music ? I.music("icon-cyan", 18) : ""}
+              </div>
+              <div>
+                <strong>Optimal Soundscape Mode:</strong>
+                <p>10Hz Binaural Alpha Waves to maximize calculus derivation focus</p>
+              </div>
             </li>
           </ul>
         </div>
@@ -1533,30 +1788,41 @@ window.neuroDashboardModule = new NeuroDashboardModule();
 
 /* File: modules/studentNotes.js */
 /**
- * stud.io Running Notes Workspace & Live NLP Confusion Analyzer
+ * stud.io Running Notes Workspace & Live NLP Confusion Analyzer (WWDC27 Edition)
  */
 class StudentNotesModule {
   renderNotesWorkspace(containerEl) {
+    const I = window.StudioIcons || {};
+
     containerEl.innerHTML = `
       <div class="module-header">
-        <h2>📝 Student Running Notes & Live NeuroAdapt™ Analyzer</h2>
+        <h2>Student Running Notes & Live NeuroAdapt™ Analyzer</h2>
         <p>Type your rough session notes here. Our neural engine scans for confusion markers (<code>???</code>, <code>unclear</code>, missing formulas) and automatically creates patch quizzes.</p>
       </div>
 
       <div class="notes-layout">
         <div class="notes-editor-panel glass-panel">
           <div class="editor-header">
-            <span class="editor-title">Chapter Notes: Taylor Series & Lagrange Error</span>
+            <div class="card-icon-title">
+              ${I.notes ? I.notes("icon-purple", 20) : ""}
+              <span class="editor-title">Chapter Notes: Taylor Series & Lagrange Error</span>
+            </div>
             <button id="btn-analyze-notes" class="btn-primary">
-              🧠 Run NeuroAdapt NLP Scan
+              ${I.brain ? I.brain("", 16) : ""}
+              <span>Run NeuroAdapt NLP Scan</span>
             </button>
           </div>
           <textarea id="student-notes-textarea" class="notes-textarea" placeholder="Type or paste your rough notes during class or study sessions... E.g.: 'Taylor series is centered at c. Formula is sum of f^(n)(c)/n!*(x-c)^n. Lagrange error bound is super confusing??? How do I choose M for sin(x)?'"></textarea>
         </div>
 
         <div class="notes-analysis-panel glass-panel" id="notes-analysis-output">
-          <h3>🔍 Live NeuroAdapt™ Notes Scan Output</h3>
-          <p class="text-muted">Click "Run NeuroAdapt NLP Scan" to evaluate your running notes.</p>
+          <div class="card-title-row">
+            <div class="card-icon-title">
+              ${I.sparkles ? I.sparkles("icon-cyan", 20) : ""}
+              <h3>Live NeuroAdapt™ Notes Scan Output</h3>
+            </div>
+          </div>
+          <p class="text-muted">Click "Run NeuroAdapt NLP Scan" to evaluate your running notes and detect knowledge gaps.</p>
         </div>
       </div>
     `;
@@ -1571,22 +1837,34 @@ class StudentNotesModule {
         const result = window.neuroNotesAnalyzer.analyzeNotes(text);
         
         outputEl.innerHTML = `
-          <h3>🔍 Live NeuroAdapt™ Notes Scan Output</h3>
-          <div class="analysis-stat">
-            <span>Detected Confusion Markers:</span>
-            <strong class="text-warning">${result.confusionCount} (${result.detectedTerms.join(", ") || "None"})</strong>
+          <div class="card-title-row">
+            <div class="card-icon-title">
+              ${I.sparkles ? I.sparkles("icon-cyan", 20) : ""}
+              <h3>Live NeuroAdapt™ Notes Scan Output</h3>
+            </div>
           </div>
-          <div class="analysis-stat">
-            <span>Syllabus Term Alignment:</span>
-            <strong class="text-success">${result.similarityScore}% Match</strong>
+
+          <div class="analysis-stat-row">
+            <div class="stat-card">
+              <span class="stat-label">Confusion Markers Detected</span>
+              <strong class="text-warning">${result.confusionCount} (${result.detectedTerms.join(", ") || "None"})</strong>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Syllabus Term Alignment</span>
+              <strong class="text-success">${result.similarityScore}% Match</strong>
+            </div>
           </div>
+
           <div class="analysis-stat">
             <span>Missing Master Concepts:</span>
             <span class="tag-group">${result.missingTerms.map(t => `<span class="tag">${t}</span>`).join(" ") || "None"}</span>
           </div>
 
           <div class="patch-section">
-            <h4>🎯 Generated Patch Quizzes for Duolingo Quest Track:</h4>
+            <div class="patch-header">
+              ${I.target ? I.target("icon-purple", 18) : ""}
+              <h4>Generated Patch Quizzes Injected into Duolingo Track</h4>
+            </div>
             ${result.patchQuestions.map(pq => `
               <div class="patch-card glass-panel">
                 <strong>${pq.question}</strong>
@@ -1605,21 +1883,39 @@ window.studentNotesModule = new StudentNotesModule();
 
 /* File: modules/patternAnalyzer.js */
 /**
- * stud.io Past Paper Pattern Intelligence Module
+ * stud.io Past Paper Pattern Intelligence Module (WWDC27 Edition)
  */
 class PatternAnalyzerModule {
   renderPatternAnalyzer(containerEl, boardId = "ap_calc_bc") {
+    const I = window.StudioIcons || {};
     const data = window.STUDIO_PAST_PAPERS_DB[boardId] || window.STUDIO_PAST_PAPERS_DB.ap_calc_bc;
 
     containerEl.innerHTML = `
-      <div class="module-header">
-        <h2>📊 10-Year Past Paper Pattern Intelligence & Exam Decoder</h2>
-        <p>Pre-analyzed paper frequencies, weightage heatmaps, 95% yield predicted questions, and examiner trap decoders.</p>
+      <div class="module-header flex-header">
+        <div>
+          <h2>10-Year Past Paper Pattern Intelligence & Exam Decoder</h2>
+          <p>Pre-analyzed paper frequencies, weightage heatmaps, 95% yield predicted questions, and examiner trap decoders.</p>
+        </div>
+
+        <div class="board-selector-pill glass-panel">
+          <label>Curriculum Board:</label>
+          <select id="pattern-board-selector" class="pill-select">
+            <option value="ap_calc_bc" ${boardId === 'ap_calc_bc' ? 'selected' : ''}>USA: AP Calculus BC</option>
+            <option value="cbse_12_physics" ${boardId === 'cbse_12_physics' ? 'selected' : ''}>India: CBSE Class 12th Physics</option>
+          </select>
+        </div>
       </div>
 
       <!-- Weightage Heatmap -->
       <div class="glass-panel section-card">
-        <h3>🔥 10-Year Exam Frequency Heatmap Matrix</h3>
+        <div class="card-title-row">
+          <div class="card-icon-title">
+            ${I.flame ? I.flame("icon-amber", 20) : ""}
+            <h3>10-Year Exam Frequency Heatmap Matrix</h3>
+          </div>
+          <span class="badge-accent">10 Years Mined</span>
+        </div>
+
         <div class="trend-grid">
           ${data.tenYearTrend.map(item => `
             <div class="trend-card">
@@ -1633,7 +1929,14 @@ class PatternAnalyzerModule {
 
       <!-- Predicted Questions Matrix -->
       <div class="glass-panel section-card">
-        <h3>🎯 Top Predicted High-Yield Exam Questions</h3>
+        <div class="card-title-row">
+          <div class="card-icon-title">
+            ${I.target ? I.target("icon-cyan", 20) : ""}
+            <h3>Top Predicted High-Yield Exam Questions</h3>
+          </div>
+          <span class="badge-yield">95%+ Confidence</span>
+        </div>
+
         <div class="predicted-table-container">
           <table class="data-table">
             <thead>
@@ -1649,9 +1952,15 @@ class PatternAnalyzerModule {
               ${data.predictedQuestions.map(pq => `
                 <tr>
                   <td><strong>${pq.chapter}</strong></td>
-                  <td>${pq.question}<br/><small class="text-warning">⚠️ Examiner Trap: ${pq.trap}</small></td>
+                  <td>
+                    <div class="pq-text">${pq.question}</div>
+                    <div class="pq-trap">
+                      ${I.alert ? I.alert("icon-amber", 14) : ""}
+                      <span><strong>Examiner Trap:</strong> ${pq.trap}</span>
+                    </div>
+                  </td>
                   <td><span class="badge-yield">${pq.probability}</span></td>
-                  <td><strong>${pq.marks} Marks</strong></td>
+                  <td><strong class="marks-badge">${pq.marks} Marks</strong></td>
                   <td><code>${pq.formula}</code></td>
                 </tr>
               `).join("")}
@@ -1662,17 +1971,28 @@ class PatternAnalyzerModule {
 
       <!-- Examiner Trap Decoder -->
       <div class="glass-panel section-card">
-        <h3>⚠️ Examiner Pitfalls & Trap Warnings</h3>
+        <div class="card-title-row">
+          <div class="card-icon-title">
+            ${I.alert ? I.alert("icon-rose", 20) : ""}
+            <h3>Examiner Pitfalls & Trap Warnings</h3>
+          </div>
+          <span class="badge-danger">High Mark Deductions</span>
+        </div>
+
         <div class="traps-grid">
           ${data.examinerTraps.map(trap => `
             <div class="trap-card red-border">
-              <h4>🛑 ${trap.title}</h4>
+              <h4>${trap.title}</h4>
               <p>${trap.desc}</p>
             </div>
           `).join("")}
         </div>
       </div>
     `;
+
+    containerEl.querySelector("#pattern-board-selector").addEventListener("change", (e) => {
+      this.renderPatternAnalyzer(containerEl, e.target.value);
+    });
   }
 }
 
@@ -1681,43 +2001,64 @@ window.patternAnalyzerModule = new PatternAnalyzerModule();
 
 /* File: modules/notebookLM.js */
 /**
- * stud.io NotebookLM Dual-Host AI Audio/Video Studio Module
+ * stud.io NotebookLM Dual-Host AI Audio/Video Studio Module (WWDC27 Edition)
  */
 class NotebookLMModule {
   renderNotebookLM(containerEl, topicId = "ap_c10") {
+    const I = window.StudioIcons || {};
     const podcast = window.STUDIO_PODCASTS_DB[topicId] || window.STUDIO_PODCASTS_DB.ap_c10;
 
     containerEl.innerHTML = `
-      <div class="module-header">
-        <h2>🎙️ NotebookLM AI Audio & Visual Blackboard Studio</h2>
-        <p>Dual-host dialogue breakdown between AI tutors Alex & Maya with synchronized transcript & blackboard diagrams.</p>
+      <div class="module-header flex-header">
+        <div>
+          <h2>NotebookLM AI Audio & Visual Blackboard Studio</h2>
+          <p>Dual-host conversational breakdown between AI tutors Alex & Maya with live synchronized transcript and chalkboard diagrams.</p>
+        </div>
+
+        <div class="board-selector-pill glass-panel">
+          <label>Topic Episode:</label>
+          <select id="podcast-topic-selector" class="pill-select">
+            <option value="ap_c10" ${topicId === 'ap_c10' ? 'selected' : ''}>AP Calc BC: Taylor Series & Lagrange Error</option>
+            <option value="ind_p6" ${topicId === 'ind_p6' ? 'selected' : ''}>CBSE Physics: Ray Optics & Lens Maker Derivation</option>
+          </select>
+        </div>
       </div>
 
       <div class="notebook-layout">
         <!-- Left: Audio Player & Waveform -->
         <div class="audio-panel glass-panel">
           <div class="podcast-info">
-            <span class="host-pill">👥 Hosts: ${podcast.hosts.join(" & ")}</span>
+            <div class="host-pill">
+              ${I.users ? I.users("icon-cyan", 16) : ""}
+              <span>Hosts: ${podcast.hosts.join(" & ")}</span>
+            </div>
             <h3>${podcast.title}</h3>
-            <span class="duration-badge">⏱️ ${podcast.duration}</span>
+            <span class="duration-badge">
+              ${I.timer ? I.timer("", 14) : ""}
+              <span>${podcast.duration}</span>
+            </span>
           </div>
 
           <!-- Canvas Waveform Visualizer -->
           <div class="waveform-container">
-            <canvas id="waveform-canvas" width="600" height="100"></canvas>
+            <canvas id="waveform-canvas" width="600" height="90"></canvas>
           </div>
 
           <!-- Controls -->
           <div class="audio-controls-bar">
-            <button id="btn-play-podcast" class="btn-primary">
-              ▶️ Play AI Dialogue
-            </button>
-            <button id="btn-pause-podcast" class="btn-secondary">
-              ⏸️ Pause
-            </button>
+            <div class="playback-btn-group">
+              <button id="btn-play-podcast" class="btn-primary">
+                ${I.play ? I.play("", 16) : ""}
+                <span id="play-btn-text">Play AI Dialogue</span>
+              </button>
+              <button id="btn-pause-podcast" class="btn-secondary">
+                ${I.pause ? I.pause("", 16) : ""}
+                <span>Pause</span>
+              </button>
+            </div>
 
             <div class="speed-selector">
-              <span>Speed:</span>
+              <span class="speed-label">Speed:</span>
               <button class="speed-btn active" data-speed="1.0">1.0x</button>
               <button class="speed-btn" data-speed="1.25">1.25x</button>
               <button class="speed-btn" data-speed="1.5">1.5x</button>
@@ -1726,16 +2067,26 @@ class NotebookLMModule {
 
           <!-- Visual Chalkboard Renderer -->
           <div class="chalkboard-container">
-            <div class="board-header">✏️ AI Chalkboard Visualizer</div>
+            <div class="board-header">
+              ${I.chalkboard ? I.chalkboard("icon-cyan", 16) : ""}
+              <span>AI Chalkboard Visualizer</span>
+            </div>
             <div class="board-screen" id="chalkboard-screen">
-              <code>Taylor Series: f(x) = ∑ fⁿ(c)/n! (x-c)ⁿ</code>
+              <code>${podcast.transcript[0] ? podcast.transcript[0].boardCmd.replace("CLEAR; ", "").replace("DRAW_TEXT('", "").replace("')", "") : "Initializing Chalkboard..."}</code>
             </div>
           </div>
         </div>
 
         <!-- Right: Synchronized Interactive Transcript -->
         <div class="transcript-panel glass-panel">
-          <h3>📜 Synchronized Live Transcript</h3>
+          <div class="card-title-row">
+            <div class="card-icon-title">
+              ${I.notes ? I.notes("icon-purple", 18) : ""}
+              <h3>Synchronized Live Transcript</h3>
+            </div>
+            <span class="badge-accent">Click line to jump</span>
+          </div>
+
           <div class="transcript-list" id="transcript-list">
             ${podcast.transcript.map((item, idx) => `
               <div class="transcript-item" data-idx="${idx}">
@@ -1758,16 +2109,22 @@ class NotebookLMModule {
     let animId = null;
     const drawWaveform = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "#8b5cf6";
 
       const barWidth = 4;
-      const gap = 2;
+      const gap = 3;
       const count = Math.floor(canvas.width / (barWidth + gap));
+      const isPlaying = window.studioAudioSynth && window.studioAudioSynth.isPlaying;
 
       for (let i = 0; i < count; i++) {
-        const height = Math.random() * (window.studioAudioSynth && window.studioAudioSynth.isPlaying ? 80 : 15) + 10;
+        const height = Math.random() * (isPlaying ? 70 : 12) + (isPlaying ? 15 : 6);
         const x = i * (barWidth + gap);
         const y = (canvas.height - height) / 2;
+
+        const gradient = ctx.createLinearGradient(0, y, 0, y + height);
+        gradient.addColorStop(0, "#c084fc");
+        gradient.addColorStop(1, "#38bdf8");
+
+        ctx.fillStyle = gradient;
         ctx.fillRect(x, y, barWidth, height);
       }
       animId = requestAnimationFrame(drawWaveform);
@@ -1778,38 +2135,55 @@ class NotebookLMModule {
     // Controls
     const btnPlay = containerEl.querySelector("#btn-play-podcast");
     const btnPause = containerEl.querySelector("#btn-pause-podcast");
+    const playBtnText = containerEl.querySelector("#play-btn-text");
     const boardScreen = containerEl.querySelector("#chalkboard-screen");
     const transcriptItems = containerEl.querySelectorAll(".transcript-item");
 
     let currentTranscriptIdx = 0;
 
-    const playNextLine = () => {
+    const playLineAt = (idx) => {
+      currentTranscriptIdx = idx;
       if (currentTranscriptIdx >= podcast.transcript.length) {
         currentTranscriptIdx = 0;
+        playBtnText.innerText = "Play AI Dialogue";
         return;
       }
 
       transcriptItems.forEach(ti => ti.classList.remove("active"));
       const currentItemEl = transcriptItems[currentTranscriptIdx];
-      if (currentItemEl) currentItemEl.classList.add("active");
+      if (currentItemEl) {
+        currentItemEl.classList.add("active");
+        currentItemEl.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
 
       const lineData = podcast.transcript[currentTranscriptIdx];
-      boardScreen.innerHTML = `<code>${lineData.boardCmd.replace("DRAW_TEXT('", "").replace("')", "")}</code>`;
+      boardScreen.innerHTML = `<code>${lineData.boardCmd.replace("CLEAR; ", "").replace("DRAW_TEXT('", "").replace("')", "")}</code>`;
 
+      playBtnText.innerText = "Playing...";
       if (window.studioAudioSynth) {
         window.studioAudioSynth.speakText(`${lineData.speaker} says: ${lineData.text}`, () => {
           currentTranscriptIdx++;
-          playNextLine();
+          playLineAt(currentTranscriptIdx);
         });
       }
     };
 
     btnPlay.addEventListener("click", () => {
-      playNextLine();
+      playLineAt(currentTranscriptIdx);
     });
 
     btnPause.addEventListener("click", () => {
-      if (window.studioAudioSynth) window.studioAudioSynth.pause();
+      if (window.studioAudioSynth) {
+        window.studioAudioSynth.pause();
+        playBtnText.innerText = "Resume Dialogue";
+      }
+    });
+
+    transcriptItems.forEach(item => {
+      item.addEventListener("click", () => {
+        const idx = parseInt(item.getAttribute("data-idx"));
+        playLineAt(idx);
+      });
     });
 
     containerEl.querySelectorAll(".speed-btn").forEach(sBtn => {
@@ -1820,6 +2194,11 @@ class NotebookLMModule {
         if (window.studioAudioSynth) window.studioAudioSynth.setRate(speed);
       });
     });
+
+    containerEl.querySelector("#podcast-topic-selector").addEventListener("change", (e) => {
+      if (window.studioAudioSynth) window.studioAudioSynth.stop();
+      this.renderNotebookLM(containerEl, e.target.value);
+    });
   }
 }
 
@@ -1828,10 +2207,11 @@ window.notebookLMModule = new NotebookLMModule();
 
 /* File: modules/duolingoTrack.js */
 /**
- * stud.io Duolingo-Style Gamified Quest Track Module
+ * stud.io Duolingo-Style Gamified Quest Track Module (WWDC27 Edition)
  */
 class DuolingoTrackModule {
   renderDuolingoTrack(containerEl) {
+    const I = window.StudioIcons || {};
     this.userHearts = 5;
     this.userXP = 1250;
     this.userStreak = 14;
@@ -1839,43 +2219,64 @@ class DuolingoTrackModule {
     containerEl.innerHTML = `
       <div class="module-header flex-header">
         <div>
-          <h2>🎮 Duolingo-Style Gamified Quest Track</h2>
+          <h2>Duolingo-Style Gamified Quest Track</h2>
           <p>Complete daily bite-sized quest nodes, climb the Diamond League, and maintain your streak flame.</p>
         </div>
 
         <!-- Gamification Stats Top Bar -->
         <div class="gamify-stats-bar glass-panel">
-          <div class="stat-pill streak">🔥 <strong id="streak-val">${this.userStreak}</strong> Days</div>
-          <div class="stat-pill xp">⚡ <strong id="xp-val">${this.userXP}</strong> XP</div>
-          <div class="stat-pill hearts">❤️ <strong id="hearts-val">${this.userHearts}/5</strong></div>
+          <div class="stat-pill streak">
+            ${I.flame ? I.flame("icon-amber", 16) : ""}
+            <span><strong id="streak-val">${this.userStreak}</strong> Days</span>
+          </div>
+          <div class="stat-pill xp">
+            ${I.zap ? I.zap("icon-purple", 16) : ""}
+            <span><strong id="xp-val">${this.userXP}</strong> XP</span>
+          </div>
+          <div class="stat-pill hearts">
+            ${I.heart ? I.heart("icon-rose", 16) : ""}
+            <span><strong id="hearts-val">${this.userHearts}/5</strong></span>
+          </div>
         </div>
       </div>
 
       <!-- Quest Node Map -->
       <div class="quest-map-container glass-panel">
         <svg class="quest-path-svg" width="100%" height="450">
-          <path d="M 100 80 Q 250 150, 400 80 T 700 80 T 900 250 T 600 380 T 200 380" stroke="rgba(139, 92, 246, 0.4)" stroke-width="6" fill="none" stroke-dasharray="8 8"/>
+          <path d="M 120 80 Q 280 160, 440 80 T 740 80 T 940 260 T 640 380 T 220 380" stroke="rgba(139, 92, 246, 0.35)" stroke-width="6" fill="none" stroke-dasharray="8 8"/>
         </svg>
 
         <div class="nodes-layer">
-          <div class="node-item node-unlocked" style="top: 50px; left: 80px;" data-node="node_1">
-            <div class="node-circle">🎯</div>
-            <span class="node-title">Node 1: Foundational Core</span>
+          <div class="node-item node-unlocked" style="top: 40px; left: 80px;" data-node="node_1">
+            <div class="node-circle active-pulse">
+              ${I.target ? I.target("", 26) : ""}
+            </div>
+            <span class="node-title">Foundational Core</span>
+            <span class="node-badge unlocked">Start</span>
           </div>
 
-          <div class="node-item node-locked" style="top: 50px; left: 380px;" data-node="node_2">
-            <div class="node-circle">⚡</div>
-            <span class="node-title">Node 2: Speed Round Sprint</span>
+          <div class="node-item node-unlocked" style="top: 40px; left: 400px;" data-node="node_2">
+            <div class="node-circle">
+              ${I.zap ? I.zap("", 26) : ""}
+            </div>
+            <span class="node-title">Formula Sprint</span>
+            <span class="node-badge">75 XP</span>
           </div>
 
-          <div class="node-item node-locked" style="top: 50px; left: 680px;" data-node="node_3">
-            <div class="node-circle">🎧</div>
-            <span class="node-title">Node 3: Audio Listening Card</span>
+          <div class="node-item node-unlocked" style="top: 40px; left: 700px;" data-node="node_3">
+            <div class="node-circle">
+              ${I.headphones ? I.headphones("", 26) : ""}
+            </div>
+            <span class="node-title">Audio Listening Card</span>
+            <span class="node-badge">100 XP</span>
           </div>
 
-          <div class="node-item node-boss node-locked" style="top: 220px; left: 850px;" data-node="node_5">
-            <div class="node-circle">👑</div>
-            <span class="node-title">Boss Battle: Past Paper Trap</span>
+          <div class="node-item node-boss node-unlocked" style="top: 220px; left: 880px;" data-node="node_5">
+            <div class="node-circle boss-gold">
+              ${I.crown ? I.crown("", 28) : ""}
+            </div>
+            <span class="node-title">Boss Battle: Exam Trap</span>
+            <span class="node-badge boss-badge">200 XP</span>
           </div>
         </div>
       </div>
@@ -1896,6 +2297,7 @@ class DuolingoTrackModule {
   }
 
   openQuizModal(containerEl, nodeId) {
+    const I = window.StudioIcons || {};
     const modalOverlay = containerEl.querySelector("#quiz-modal-overlay");
     const modalBody = containerEl.querySelector("#quiz-modal-body");
     modalOverlay.classList.remove("hidden");
@@ -1911,10 +2313,15 @@ class DuolingoTrackModule {
 
         modalBody.innerHTML = `
           <div class="victory-screen text-center">
-            <div class="victory-icon">🎉</div>
+            <div class="victory-icon-wrapper">
+              ${I.trophy ? I.trophy("icon-amber", 48) : ""}
+            </div>
             <h2>Quest Node Completed!</h2>
-            <p>You earned <strong>+100 XP</strong> and maintained your <strong>${this.userStreak}-day streak</strong>!</p>
-            <button id="btn-close-victory" class="btn-primary">Continue Quest Map ➜</button>
+            <p>You earned <strong class="text-accent">+100 XP</strong> and maintained your <strong class="text-amber">${this.userStreak}-day streak</strong>!</p>
+            <button id="btn-close-victory" class="btn-primary btn-large">
+              <span>Continue Quest Map</span>
+              ${I.arrowRight ? I.arrowRight("", 16) : ""}
+            </button>
           </div>
         `;
         modalBody.querySelector("#btn-close-victory").addEventListener("click", () => {
@@ -1926,15 +2333,18 @@ class DuolingoTrackModule {
       const q = quizzes[currentIdx];
       modalBody.innerHTML = `
         <div class="quiz-header">
-          <span>Question ${currentIdx + 1} of ${quizzes.length}</span>
-          <button id="btn-close-quiz" class="btn-close">&times;</button>
+          <span class="quiz-step-count">Question ${currentIdx + 1} of ${quizzes.length}</span>
+          <button id="btn-close-quiz" class="btn-close-circle">${I.x ? I.x("", 16) : "&times;"}</button>
         </div>
 
         <h3 class="quiz-question">${q.question}</h3>
 
         <div class="quiz-options">
           ${q.options.map((opt, idx) => `
-            <button class="quiz-opt-btn" data-opt="${idx}">${opt}</button>
+            <button class="quiz-opt-btn" data-opt="${idx}">
+              <span class="opt-key">${String.fromCharCode(65 + idx)}</span>
+              <span class="opt-label">${opt}</span>
+            </button>
           `).join("")}
         </div>
 
@@ -1952,17 +2362,27 @@ class DuolingoTrackModule {
           feedback.classList.remove("hidden");
 
           if (selected === q.correct) {
-            feedback.innerHTML = `<div class="feedback-box success">✅ Correct! ${q.explanation}</div>`;
-            if (window.neuroFeatureVector) window.neuroFeatureVector.updateFromQuiz(true, 1500, q.type);
+            feedback.innerHTML = `
+              <div class="feedback-box success">
+                ${I.checkCircle ? I.checkCircle("icon-emerald", 18) : ""}
+                <div><strong>Correct!</strong> ${q.explanation}</div>
+              </div>
+            `;
+            if (window.neuroFeatureVector) window.neuroFeatureVector.updateFromQuiz(true, 1200, q.type);
             setTimeout(() => {
               currentIdx++;
               renderCurrentQuiz();
-            }, 1600);
+            }, 1500);
           } else {
             this.userHearts = Math.max(0, this.userHearts - 1);
             containerEl.querySelector("#hearts-val").innerText = `${this.userHearts}/5`;
-            feedback.innerHTML = `<div class="feedback-box error">❌ Incorrect! ${q.explanation}</div>`;
-            if (window.neuroFeatureVector) window.neuroFeatureVector.updateFromQuiz(false, 3000, q.type);
+            feedback.innerHTML = `
+              <div class="feedback-box error">
+                ${I.alert ? I.alert("icon-rose", 18) : ""}
+                <div><strong>Incorrect!</strong> ${q.explanation}</div>
+              </div>
+            `;
+            if (window.neuroFeatureVector) window.neuroFeatureVector.updateFromQuiz(false, 2800, q.type);
           }
         });
       });
@@ -1977,47 +2397,70 @@ window.duolingoTrackModule = new DuolingoTrackModule();
 
 /* File: modules/activeRecall.js */
 /**
- * stud.io Ultimate Active Recall & Spaced Repetition Suite Module
+ * stud.io Ultimate Active Recall & Spaced Repetition Suite Module (WWDC27 Edition)
  */
 class ActiveRecallModule {
   renderActiveRecall(containerEl) {
+    const I = window.StudioIcons || {};
+    this.currentDeck = window.STUDIO_FLASHCARDS_DB || [];
+    this.currentCardIdx = 0;
+
     containerEl.innerHTML = `
       <div class="module-header">
-        <h2>🧠 Ultimate Active Recall & Spaced Repetition Suite</h2>
+        <h2>Ultimate Active Recall & Spaced Repetition Suite</h2>
         <p>Leitner 5-Box flashcard decks, Feynman AI mentor, timed Blurting workspace, and Cornell note generators.</p>
       </div>
 
       <div class="active-recall-tabs">
-        <button class="ar-tab active" data-tab="tab-leitner">📇 Leitner 5-Box Flashcards</button>
-        <button class="ar-tab" data-tab="tab-feynman">👨‍🏫 Feynman AI Mentor</button>
-        <button class="ar-tab" data-tab="tab-blurting">📝 Timed Blurting Method</button>
+        <button class="ar-tab active" data-tab="tab-leitner">
+          ${I.cards ? I.cards("", 16) : ""}
+          <span>Leitner 5-Box Flashcards</span>
+        </button>
+        <button class="ar-tab" data-tab="tab-feynman">
+          ${I.brain ? I.brain("", 16) : ""}
+          <span>Feynman AI Mentor</span>
+        </button>
+        <button class="ar-tab" data-tab="tab-blurting">
+          ${I.notes ? I.notes("", 16) : ""}
+          <span>Timed Blurting Method</span>
+        </button>
       </div>
 
       <div class="ar-content-area glass-panel">
         <!-- Tab 1: Leitner Flashcards -->
         <div class="ar-pane active" id="tab-leitner">
           <div class="leitner-boxes-bar">
-            <div class="l-box active">Box 1 (Daily)</div>
-            <div class="l-box">Box 2 (Every 3 Days)</div>
-            <div class="l-box">Box 3 (Weekly)</div>
-            <div class="l-box">Box 4 (Bi-Weekly)</div>
-            <div class="l-box">Box 5 (Monthly)</div>
+            <div class="l-box active" data-box="1">Box 1 (Daily)</div>
+            <div class="l-box" data-box="2">Box 2 (Every 3 Days)</div>
+            <div class="l-box" data-box="3">Box 3 (Weekly)</div>
+            <div class="l-box" data-box="4">Box 4 (Bi-Weekly)</div>
+            <div class="l-box" data-box="5">Box 5 (Monthly)</div>
           </div>
 
           <!-- Flashcard 3D Flip Card -->
           <div class="flashcard-container">
             <div class="flashcard glass-panel" id="leitner-flashcard">
               <div class="card-side card-front">
-                <span class="card-topic">Taylor & Power Series</span>
-                <h3>What is the Maclaurin series expansion for e^x?</h3>
-                <small class="flip-hint">👆 Click card to flip answer</small>
+                <div class="card-meta-top">
+                  <span class="card-topic">${this.currentDeck[0].topic}</span>
+                  <span class="card-num-badge">Card 1 of ${this.currentDeck.length}</span>
+                </div>
+                <h3 class="card-question-text">${this.currentDeck[0].question}</h3>
+                <small class="flip-hint">Click card to reveal answer</small>
               </div>
+
               <div class="card-side card-back hidden">
-                <h3>Answer:</h3>
-                <p><code>∑_{n=0}^∞ x^n / n! = 1 + x + x^2/2! + x^3/3! + ...</code></p>
+                <span class="answer-badge">Model Answer</span>
+                <p class="card-answer-text"><code>${this.currentDeck[0].answer}</code></p>
                 <div class="card-btn-row">
-                  <button id="btn-fc-wrong" class="btn-danger">❌ Got it Wrong (Move to Box 1)</button>
-                  <button id="btn-fc-correct" class="btn-success">✅ Got it Right (Promote to Box 2)</button>
+                  <button id="btn-fc-wrong" class="btn-danger-pill">
+                    ${I.x ? I.x("", 16) : ""}
+                    <span>Got it Wrong (Box 1)</span>
+                  </button>
+                  <button id="btn-fc-correct" class="btn-success-pill">
+                    ${I.check ? I.check("", 16) : ""}
+                    <span>Got it Right (Promote)</span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -2026,21 +2469,24 @@ class ActiveRecallModule {
 
         <!-- Tab 2: Feynman AI Mentor -->
         <div class="ar-pane" id="tab-feynman">
-          <h3>👨‍🏫 Feynman Technique AI Student Mentor</h3>
-          <p>Explain a complex topic in simple plain English as if teaching a middle-school student.</p>
+          <div class="tab-pane-header">
+            <h3>Feynman Technique AI Student Mentor</h3>
+            <p>Explain a complex concept in plain English without relying on technical jargon. Our AI mentor will evaluate clarity.</p>
+          </div>
           
           <div class="form-group">
-            <label>Concept Title:</label>
-            <input type="text" class="form-control" value="Taylor Series & Function Approximations" readonly/>
+            <label>Concept Under Review:</label>
+            <input type="text" class="form-control" value="Taylor Series & Polynomial Approximations" readonly/>
           </div>
 
           <div class="form-group">
             <label>Your Plain English Explanation:</label>
-            <textarea id="feynman-text" class="notes-textarea" placeholder="Explain how Taylor series work without relying on heavy mathematical jargon..."></textarea>
+            <textarea id="feynman-text" class="notes-textarea" placeholder="Explain how Taylor series work as if teaching a middle-school student..."></textarea>
           </div>
 
           <button id="btn-eval-feynman" class="btn-primary">
-            🤖 Evaluate Explanation with Feynman AI
+            ${I.sparkles ? I.sparkles("", 16) : ""}
+            <span>Evaluate with Feynman AI</span>
           </button>
 
           <div id="feynman-result" class="feynman-result-box hidden"></div>
@@ -2048,15 +2494,23 @@ class ActiveRecallModule {
 
         <!-- Tab 3: Timed Blurting Method -->
         <div class="ar-pane" id="tab-blurting">
-          <h3>📝 Timed Blurting Method Workspace</h3>
-          <p>You have 3 minutes to blurt out everything you know from memory. Screen will wipe when timer starts!</p>
-
-          <div class="blurting-timer-bar">
-            <span>Timer: <strong id="blurt-timer-val">03:00</strong></span>
-            <button id="btn-start-blurting" class="btn-primary">▶️ Start 3-Min Blurt Session</button>
+          <div class="tab-pane-header">
+            <h3>Timed Blurting Method Workspace</h3>
+            <p>You have 3 minutes to blurt out everything you remember from memory. The screen will lock and evaluate against syllabus master notes.</p>
           </div>
 
-          <textarea id="blurt-input" class="notes-textarea" placeholder="Blurt out every formula, definition, and concept key point you remember..." disabled></textarea>
+          <div class="blurting-timer-bar">
+            <div class="blurting-timer-display">
+              ${I.timer ? I.timer("icon-rose", 18) : ""}
+              <span>Time Left: <strong id="blurt-timer-val">03:00</strong></span>
+            </div>
+            <button id="btn-start-blurting" class="btn-primary">
+              ${I.play ? I.play("", 16) : ""}
+              <span>Start 3-Min Blurt Session</span>
+            </button>
+          </div>
+
+          <textarea id="blurt-input" class="notes-textarea" placeholder="Click 'Start 3-Min Blurt Session' and type everything you remember..." disabled></textarea>
           <div id="blurt-result" class="blurt-result-box hidden"></div>
         </div>
       </div>
@@ -2083,19 +2537,29 @@ class ActiveRecallModule {
     const back = fc.querySelector(".card-back");
 
     fc.addEventListener("click", (e) => {
-      if (e.target.tagName === "BUTTON") return;
+      if (e.target.closest("button")) return;
       front.classList.toggle("hidden");
       back.classList.toggle("hidden");
     });
 
     fc.querySelector("#btn-fc-correct").addEventListener("click", () => {
-      alert("🎉 Card promoted to Box 2! Next review in 3 days.");
+      this.currentCardIdx = (this.currentCardIdx + 1) % this.currentDeck.length;
+      const nextCard = this.currentDeck[this.currentCardIdx];
+      fc.querySelector(".card-topic").innerText = nextCard.topic;
+      fc.querySelector(".card-question-text").innerText = nextCard.question;
+      fc.querySelector(".card-answer-text").innerHTML = `<code>${nextCard.answer}</code>`;
+      fc.querySelector(".card-num-badge").innerText = `Card ${this.currentCardIdx + 1} of ${this.currentDeck.length}`;
       front.classList.remove("hidden");
       back.classList.add("hidden");
     });
 
     fc.querySelector("#btn-fc-wrong").addEventListener("click", () => {
-      alert("⚠️ Card moved to Box 1 for daily review.");
+      this.currentCardIdx = (this.currentCardIdx + 1) % this.currentDeck.length;
+      const nextCard = this.currentDeck[this.currentCardIdx];
+      fc.querySelector(".card-topic").innerText = nextCard.topic;
+      fc.querySelector(".card-question-text").innerText = nextCard.question;
+      fc.querySelector(".card-answer-text").innerHTML = `<code>${nextCard.answer}</code>`;
+      fc.querySelector(".card-num-badge").innerText = `Card ${this.currentCardIdx + 1} of ${this.currentDeck.length}`;
       front.classList.remove("hidden");
       back.classList.add("hidden");
     });
@@ -2110,8 +2574,11 @@ class ActiveRecallModule {
         const evalRes = window.feynmanAgent.evaluateExplanation("Taylor Series", feynmanText.value);
         feynmanResult.classList.remove("hidden");
         feynmanResult.innerHTML = `
-          <h4>${evalRes.rating} (Score: ${evalRes.score}/100)</h4>
-          <p>${evalRes.feedback}</p>
+          <div class="feynman-eval-header">
+            <h4>${evalRes.rating}</h4>
+            <span class="score-pill">${evalRes.score}/100 Clarity Index</span>
+          </div>
+          <p class="feynman-feedback-text">${evalRes.feedback}</p>
         `;
       }
     });
@@ -2140,13 +2607,15 @@ class ActiveRecallModule {
 
           const vecRes = window.studioVectorEngine ? 
             window.studioVectorEngine.compareTexts(blurtInput.value, "Taylor series expansion f(x) = sum f^(n)(c)/n! * (x-c)^n Lagrange error bound ratio test") : 
-            { similarityScore: 82, missingTerms: ["Ratio Test"] };
+            { similarityScore: 85, missingTerms: ["Ratio Test"] };
 
           blurtResult.classList.remove("hidden");
           blurtResult.innerHTML = `
-            <h4>🎉 Blurt Session Completed!</h4>
-            <p>Accuracy Score against Master Syllabus Notes: <strong>${vecRes.similarityScore}%</strong></p>
-            <p>Missing Master Terms: <strong>${vecRes.missingTerms.join(", ") || "None!"}</strong></p>
+            <h4>Blurt Recall Analysis Completed</h4>
+            <div class="blurt-stats-row">
+              <span>Syllabus Accuracy Score: <strong>${vecRes.similarityScore}%</strong></span>
+              <span>Missing Key Concepts: <strong>${vecRes.missingTerms.join(", ") || "None"}</strong></span>
+            </div>
           `;
         }
       }, 1000);
@@ -2159,10 +2628,11 @@ window.activeRecallModule = new ActiveRecallModule();
 
 /* File: modules/pomodoro.js */
 /**
- * stud.io Pomodoro & Web Audio Soundscape Focus Studio Module
+ * stud.io Pomodoro & Web Audio Soundscape Focus Studio Module (WWDC27 Edition)
  */
 class PomodoroModule {
   renderPomodoro(containerEl) {
+    const I = window.StudioIcons || {};
     this.timerSeconds = 25 * 60;
     this.initialSeconds = 25 * 60;
     this.timerInterval = null;
@@ -2170,7 +2640,7 @@ class PomodoroModule {
 
     containerEl.innerHTML = `
       <div class="module-header">
-        <h2>⏱️ Pomodoro & Synthesized Soundscape Studio</h2>
+        <h2>Pomodoro & Synthesized Soundscape Studio</h2>
         <p>Customizable deep work focus timer integrated with Web Audio synthesized rain, cafe, and binaural alpha waves.</p>
       </div>
 
@@ -2185,8 +2655,14 @@ class PomodoroModule {
 
           <div class="svg-timer-container">
             <svg class="timer-svg" width="260" height="260">
-              <circle cx="130" cy="130" r="110" stroke="rgba(255,255,255,0.08)" stroke-width="12" fill="none"/>
-              <circle id="timer-progress-ring" cx="130" cy="130" r="110" stroke="#8b5cf6" stroke-width="12" fill="none" stroke-dasharray="691" stroke-dashoffset="0" stroke-linecap="round"/>
+              <circle cx="130" cy="130" r="110" stroke="rgba(255,255,255,0.06)" stroke-width="12" fill="none"/>
+              <circle id="timer-progress-ring" cx="130" cy="130" r="110" stroke="url(#timer-gradient)" stroke-width="12" fill="none" stroke-dasharray="691" stroke-dashoffset="0" stroke-linecap="round"/>
+              <defs>
+                <linearGradient id="timer-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#c084fc" />
+                  <stop offset="100%" stop-color="#38bdf8" />
+                </linearGradient>
+              </defs>
             </svg>
 
             <div class="timer-display-overlay">
@@ -2196,41 +2672,66 @@ class PomodoroModule {
           </div>
 
           <div class="timer-controls">
-            <button id="btn-pomo-start" class="btn-primary btn-large">▶️ Start Session</button>
-            <button id="btn-pomo-reset" class="btn-secondary">🔄 Reset</button>
+            <button id="btn-pomo-start" class="btn-primary btn-large">
+              ${I.play ? I.play("", 18) : ""}
+              <span id="pomo-start-text">Start Session</span>
+            </button>
+            <button id="btn-pomo-reset" class="btn-secondary">
+              ${I.rotate ? I.rotate("", 18) : ""}
+              <span>Reset</span>
+            </button>
           </div>
         </div>
 
         <!-- Right: Web Audio Soundscape Controls -->
         <div class="soundscape-panel glass-panel">
-          <h3>🎵 Synthesized Web Audio Soundscapes</h3>
-          <p>Real-time audio synthesized natively in your browser without external media downloads.</p>
+          <div class="card-title-row">
+            <div class="card-icon-title">
+              ${I.music ? I.music("icon-cyan", 20) : ""}
+              <h3>Synthesized Web Audio Soundscapes</h3>
+            </div>
+            <span class="badge-accent">Native Audio Synthesis</span>
+          </div>
+
+          <p class="soundscape-desc">Real-time frequencies synthesized directly in your browser without network audio streaming.</p>
 
           <div class="soundscape-grid">
             <div class="sound-card" data-sound="rain">
-              <span class="sound-icon">🌧️</span>
+              <div class="sound-icon-box">
+                ${I.cloudRain ? I.cloudRain("icon-cyan", 24) : ""}
+              </div>
               <strong>Rain Ambiance</strong>
-              <small>Pink noise filter</small>
+              <small>Lowpass filtered pink noise</small>
             </div>
+
             <div class="sound-card" data-sound="binaural">
-              <span class="sound-icon">🧠</span>
+              <div class="sound-icon-box">
+                ${I.brain ? I.brain("icon-purple", 24) : ""}
+              </div>
               <strong>10Hz Alpha Waves</strong>
-              <small>Focus beat offset</small>
+              <small>Phase offset focus beat</small>
             </div>
+
             <div class="sound-card" data-sound="lofi">
-              <span class="sound-icon">🌌</span>
+              <div class="sound-icon-box">
+                ${I.music ? I.music("icon-amber", 24) : ""}
+              </div>
               <strong>Deep Space Lo-Fi</strong>
               <small>Warm triangle wave</small>
             </div>
           </div>
 
           <div class="volume-slider-row">
-            <span>🔊 Volume:</span>
+            <div class="volume-label">
+              ${I.volume ? I.volume("icon-muted", 16) : ""}
+              <span>Master Volume</span>
+            </div>
             <input type="range" id="soundscape-volume" min="0" max="1" step="0.05" value="0.3"/>
           </div>
 
           <button id="btn-stop-soundscape" class="btn-secondary full-width">
-            ⏹️ Stop All Soundscapes
+            ${I.stop ? I.stop("", 14) : ""}
+            <span>Mute All Soundscapes</span>
           </button>
         </div>
       </div>
@@ -2240,6 +2741,7 @@ class PomodoroModule {
     const modeBtns = containerEl.querySelectorAll(".mode-btn");
     const displayTime = containerEl.querySelector("#pomo-display-time");
     const ring = containerEl.querySelector("#timer-progress-ring");
+    const startText = containerEl.querySelector("#pomo-start-text");
 
     modeBtns.forEach(btn => {
       btn.addEventListener("click", () => {
@@ -2257,7 +2759,7 @@ class PomodoroModule {
         if (this.isRunning) {
           clearInterval(this.timerInterval);
           this.isRunning = false;
-          containerEl.querySelector("#btn-pomo-start").innerText = "▶️ Start Session";
+          startText.innerText = "Start Session";
         }
       });
     });
@@ -2267,7 +2769,7 @@ class PomodoroModule {
     btnStart.addEventListener("click", () => {
       if (!this.isRunning) {
         this.isRunning = true;
-        btnStart.innerText = "⏸️ Pause Session";
+        startText.innerText = "Pause Session";
 
         this.timerInterval = setInterval(() => {
           this.timerSeconds--;
@@ -2282,14 +2784,14 @@ class PomodoroModule {
           if (this.timerSeconds <= 0) {
             clearInterval(this.timerInterval);
             this.isRunning = false;
-            btnStart.innerText = "▶️ Start Session";
-            alert("🔔 Focus session complete! Take a 5-minute break.");
+            startText.innerText = "Start Session";
+            alert("Focus session complete! Take a 5-minute break.");
           }
         }, 1000);
       } else {
         clearInterval(this.timerInterval);
         this.isRunning = false;
-        btnStart.innerText = "▶️ Resume Session";
+        startText.innerText = "Resume Session";
       }
     });
 
@@ -2301,7 +2803,7 @@ class PomodoroModule {
       const m = String(Math.floor(this.timerSeconds / 60)).padStart(2, "0");
       displayTime.innerText = `${m}:00`;
       ring.style.strokeDashoffset = "0";
-      btnStart.innerText = "▶️ Start Session";
+      startText.innerText = "Start Session";
     });
 
     // Soundscapes
@@ -2338,41 +2840,51 @@ window.pomodoroModule = new PomodoroModule();
 
 /* File: modules/examSimulator.js */
 /**
- * stud.io Worksheet & Timed Mock Exam Simulator Module
+ * stud.io Worksheet & Timed Mock Exam Simulator Module (WWDC27 Edition)
  */
 class ExamSimulatorModule {
   renderExamSimulator(containerEl) {
+    const I = window.StudioIcons || {};
+
     containerEl.innerHTML = `
       <div class="module-header">
-        <h2>📝 Worksheet & Timed Mock Exam Simulator</h2>
-        <p>Generate target topic worksheets or attempt full-length timed mock exams with step-by-step mark schemes.</p>
+        <h2>Worksheet & Timed Mock Exam Simulator</h2>
+        <p>Generate target topic practice worksheets or attempt full-length timed mock exams with step-by-step marking rubrics.</p>
       </div>
 
       <div class="simulator-layout">
         <!-- Worksheet Generator -->
         <div class="sim-card glass-panel">
-          <h3>⚡ Custom Worksheet Generator</h3>
-          <p>Generate a customized practice problem worksheet based on high-yield exam predictions.</p>
+          <div class="card-title-row">
+            <div class="card-icon-title">
+              ${I.notes ? I.notes("icon-purple", 22) : ""}
+              <h3>Custom Practice Worksheet Generator</h3>
+            </div>
+            <span class="badge-accent">Print Ready</span>
+          </div>
+
+          <p class="sim-desc">Synthesize customized practice problems based on high-yield exam predictions.</p>
 
           <div class="form-group">
-            <label>Target Subject:</label>
+            <label>Target Subject & Chapter:</label>
             <select class="form-control" id="ws-subject">
-              <option value="ap_calc">AP Calculus BC - Infinite Series & Taylor</option>
-              <option value="cbse_physics">CBSE Class 12th Physics - Ray Optics</option>
+              <option value="ap_calc">AP Calculus BC - Infinite Series & Taylor Polynomials</option>
+              <option value="cbse_physics">CBSE Class 12th Physics - Ray Optics & Wave Optics</option>
             </select>
           </div>
 
           <div class="form-group">
-            <label>Number of Questions:</label>
+            <label>Question Volume:</label>
             <select class="form-control" id="ws-count">
-              <option value="5">5 Questions (Quick Practice)</option>
-              <option value="10">10 Questions (Standard Sprint)</option>
-              <option value="20">20 Questions (Full Deep Dive)</option>
+              <option value="5">5 Questions (Quick Practice Sprint)</option>
+              <option value="10">10 Questions (Standard Drill)</option>
+              <option value="20">20 Questions (Full Deep Exam Session)</option>
             </select>
           </div>
 
-          <button id="btn-gen-worksheet" class="btn-primary">
-            📄 Generate & Print Worksheet
+          <button id="btn-gen-worksheet" class="btn-primary full-width">
+            ${I.exam ? I.exam("", 16) : ""}
+            <span>Generate & Render Worksheet</span>
           </button>
 
           <div id="worksheet-output" class="worksheet-output hidden"></div>
@@ -2380,17 +2892,25 @@ class ExamSimulatorModule {
 
         <!-- Timed Mock Exam -->
         <div class="sim-card glass-panel">
-          <h3>⏱️ Full-Length Timed Mock Exam</h3>
-          <p>Simulate official exam conditions with live timer, question flagger, and diagnostic score breakdown.</p>
-
-          <div class="exam-info-box">
-            <div><strong>Exam:</strong> AP Calculus BC Model Test</div>
-            <div><strong>Duration:</strong> 15 Minutes (Timed Sprint)</div>
-            <div><strong>Total Marks:</strong> 25 Marks</div>
+          <div class="card-title-row">
+            <div class="card-icon-title">
+              ${I.timer ? I.timer("icon-rose", 22) : ""}
+              <h3>Full-Length Timed Mock Exam</h3>
+            </div>
+            <span class="badge-danger">Exam Conditions</span>
           </div>
 
-          <button id="btn-start-mock-exam" class="btn-primary btn-large">
-            🎯 Start Timed Mock Exam
+          <p class="sim-desc">Simulate official testing conditions with live countdown clock, question flagger, and diagnostic score breakdown.</p>
+
+          <div class="exam-info-box">
+            <div class="info-row"><span>Target Exam:</span><strong>AP Calculus BC Model Sprint</strong></div>
+            <div class="info-row"><span>Time Limit:</span><strong>15 Minutes</strong></div>
+            <div class="info-row"><span>Total Marks:</span><strong>25 Marks</strong></div>
+          </div>
+
+          <button id="btn-start-mock-exam" class="btn-primary btn-large full-width">
+            ${I.target ? I.target("", 18) : ""}
+            <span>Start Timed Mock Exam</span>
           </button>
         </div>
       </div>
@@ -2403,18 +2923,20 @@ class ExamSimulatorModule {
     btnGen.addEventListener("click", () => {
       outputEl.classList.remove("hidden");
       outputEl.innerHTML = `
-        <div class="worksheet-paper">
-          <h4>📄 stud.io Practice Worksheet: Infinite Series & Taylor Polynomials</h4>
-          <p><small>Date: ${new Date().toLocaleDateString()} | Target Grade: 5/5</small></p>
+        <div class="worksheet-paper glass-panel">
+          <div class="ws-header">
+            <h4>stud.io High-Yield Practice Worksheet: Infinite Series</h4>
+            <span class="badge-yield">Grade Target: 5/5</span>
+          </div>
 
           <div class="ws-question">
-            <strong>Q1 (5 Marks):</strong> Find the interval of convergence for ∑ (x - 3)^n / (n · 4^n) using the Ratio Test. Show all work for endpoints.
+            <strong>Question 1 (5 Marks):</strong> Find the interval of convergence for ∑ (x - 3)^n / (n · 4^n) using the Ratio Test. Show all endpoint tests explicitly.
           </div>
           <div class="ws-question">
-            <strong>Q2 (4 Marks):</strong> Write the first four non-zero terms of the Taylor series for f(x) = sin(x^2) centered at x = 0.
+            <strong>Question 2 (4 Marks):</strong> Write the first four non-zero terms of the Taylor series for f(x) = sin(x^2) centered at x = 0.
           </div>
           <div class="ws-question">
-            <strong>Q3 (6 Marks):</strong> Determine the Lagrange error bound when P_3(0.2) is used to approximate e^(0.2).
+            <strong>Question 3 (6 Marks):</strong> Determine the Lagrange error bound when P_3(0.2) is used to approximate e^(0.2).
           </div>
         </div>
       `;
@@ -2423,7 +2945,7 @@ class ExamSimulatorModule {
     // Mock Exam
     const btnMock = containerEl.querySelector("#btn-start-mock-exam");
     btnMock.addEventListener("click", () => {
-      alert("🎯 Timed Mock Exam initialized! Your 15-minute countdown clock is active.");
+      alert("Timed Mock Exam initialized! Your 15-minute countdown clock is active.");
     });
   }
 }
@@ -2433,41 +2955,64 @@ window.examSimulatorModule = new ExamSimulatorModule();
 
 /* File: modules/digitalVault.js */
 /**
- * stud.io Global Digital Vault & Vector Formula Search Engine Module
+ * stud.io Global Digital Vault & Vector Formula Search Engine Module (WWDC27 Edition)
  */
 class DigitalVaultModule {
   renderDigitalVault(containerEl) {
+    const I = window.StudioIcons || {};
+
     containerEl.innerHTML = `
       <div class="module-header">
-        <h2>📚 Global Digital Library & Vector Formula Vault</h2>
-        <p>Search thousands of formula sheets, cheat sheets, quick summaries, and high-resolution SVG mind maps.</p>
+        <h2>Global Digital Library & Vector Formula Vault</h2>
+        <p>Search thousands of formula sheets, cheat sheets, quick revision summaries, and high-resolution SVG mind maps.</p>
       </div>
 
       <div class="vault-search-bar glass-panel">
-        <input type="text" id="vault-search-input" class="search-input" placeholder="🔍 Search formulas, key definitions, or concepts (e.g. 'Taylor Series', 'Lens Maker', 'Biot-Savart')..."/>
-        <button id="btn-vault-search" class="btn-primary">Vector Search 🚀</button>
+        <div class="search-input-wrapper">
+          ${I.search ? I.search("icon-muted", 20) : ""}
+          <input type="text" id="vault-search-input" class="search-input" placeholder="Search formulas, key definitions, or theorems (e.g. 'Taylor Series', 'Lens Maker', 'Biot-Savart')..."/>
+        </div>
+        <button id="btn-vault-search" class="btn-primary">
+          ${I.sparkles ? I.sparkles("", 16) : ""}
+          <span>Vector Search</span>
+        </button>
       </div>
 
       <div class="vault-grid">
         <div class="vault-card glass-panel">
-          <span class="v-icon">📐</span>
+          <div class="vault-icon-box">
+            ${I.code ? I.code("icon-purple", 24) : ""}
+          </div>
           <h3>AP Calculus Formula Cheat Sheet</h3>
           <p>Complete derivative rules, integral tables, and series convergence tests.</p>
-          <button class="btn-secondary btn-small">📄 Open Cheat Sheet</button>
+          <button class="btn-secondary btn-small full-width btn-open-sheet">
+            <span>Open Cheat Sheet</span>
+            ${I.arrowRight ? I.arrowRight("", 14) : ""}
+          </button>
         </div>
 
         <div class="vault-card glass-panel">
-          <span class="v-icon">⚡</span>
+          <div class="vault-icon-box">
+            ${I.zap ? I.zap("icon-cyan", 24) : ""}
+          </div>
           <h3>JEE & CBSE Physics Formula Vault</h3>
           <p>Electrostatics, Ray Optics, Kirchhoff Laws, and Quantum Physics summary.</p>
-          <button class="btn-secondary btn-small">📄 Open Cheat Sheet</button>
+          <button class="btn-secondary btn-small full-width btn-open-sheet">
+            <span>Open Cheat Sheet</span>
+            ${I.arrowRight ? I.arrowRight("", 14) : ""}
+          </button>
         </div>
 
         <div class="vault-card glass-panel">
-          <span class="v-icon">🧪</span>
+          <div class="vault-icon-box">
+            ${I.brain ? I.brain("icon-emerald", 24) : ""}
+          </div>
           <h3>A-Level & NEET Chemistry Mind Map</h3>
           <p>Organic reaction mechanisms, thermodynamics, and electrode potentials.</p>
-          <button class="btn-secondary btn-small">📄 Open Mind Map</button>
+          <button class="btn-secondary btn-small full-width btn-open-sheet">
+            <span>Open Mind Map</span>
+            ${I.arrowRight ? I.arrowRight("", 14) : ""}
+          </button>
         </div>
       </div>
     `;
@@ -2478,7 +3023,13 @@ class DigitalVaultModule {
     btnSearch.addEventListener("click", () => {
       const query = searchInput.value;
       if (!query) return;
-      alert(`🔍 Vector Engine searched global vault for "${query}". Found 4 matching formula sheets & mind maps.`);
+      alert(`Vector Engine searched global digital vault for "${query}". Found 4 matching formula sheets & mind maps.`);
+    });
+
+    containerEl.querySelectorAll(".btn-open-sheet").forEach(btn => {
+      btn.addEventListener("click", () => {
+        alert("Opening digital cheat sheet in high-resolution interactive viewer.");
+      });
     });
   }
 }
@@ -2488,33 +3039,83 @@ window.digitalVaultModule = new DigitalVaultModule();
 
 /* File: modules/extracurricular.js */
 /**
- * stud.io Extracurricular & Beyond-Syllabus Academy Module
+ * stud.io Extracurricular & Beyond-Syllabus Academy Module (WWDC27 Edition)
  */
 class ExtracurricularModule {
   renderExtracurricular(containerEl) {
-    const courses = window.STUDIO_EXTRACURRICULAR_DB || [];
+    const I = window.StudioIcons || {};
+    const courses = [
+      {
+        id: "ext_py_ai",
+        category: "Technology & AI",
+        title: "Python Programming & AI Engineering Basics",
+        iconFunc: () => I.code ? I.code("icon-purple", 24) : "",
+        lessons: 12,
+        level: "Beginner to Intermediate",
+        desc: "Master Python fundamentals, build neural networks from scratch in native JS/PyTorch, and construct AI agent pipelines."
+      },
+      {
+        id: "ext_finance",
+        category: "Life Skills & Business",
+        title: "Personal Finance & Investing for Students",
+        iconFunc: () => I.trendingUp ? I.trendingUp("icon-emerald", 24) : "",
+        lessons: 8,
+        level: "Essential Life Skill",
+        desc: "Understand compound interest, equity markets, ETFs, budgeting systems, and building long-term financial freedom."
+      },
+      {
+        id: "ext_public_speaking",
+        category: "Communication",
+        title: "Public Speaking, Debating & Persuasion",
+        iconFunc: () => I.mic ? I.mic("icon-cyan", 24) : "",
+        lessons: 10,
+        level: "All Levels",
+        desc: "Conquer stage anxiety, master vocal timbre, structure debate arguments with Monroe's sequence, and deliver keynote speeches."
+      },
+      {
+        id: "ext_astronomy",
+        category: "Science & Exploration",
+        title: "Astrophysics, Black Holes & Deep Space",
+        iconFunc: () => I.globe ? I.globe("icon-amber", 24) : "",
+        lessons: 14,
+        level: "Curiosity & Passion",
+        desc: "Explore General Relativity, spacetime curvature, black hole event horizons, and modern exoplanet discovery."
+      },
+      {
+        id: "ext_music_theory",
+        category: "Creative Arts",
+        title: "Music Theory & Sound Design Fundamentals",
+        iconFunc: () => I.music ? I.music("icon-rose", 24) : "",
+        lessons: 10,
+        level: "Beginner",
+        desc: "Learn scales, Circle of Fifths, chord progressions, harmonic rhythm, and synthesizer patch design in DAWs."
+      }
+    ];
 
     containerEl.innerHTML = `
       <div class="module-header">
-        <h2>🌟 Extracurricular & Beyond-Syllabus Academy</h2>
-        <p>Learn non-academic skills: Python & AI engineering, Personal Finance, Public Speaking, Astronomy, and Music Theory.</p>
+        <h2>Extracurricular & Beyond-Syllabus Academy</h2>
+        <p>Master high-impact non-academic skills: Python & AI engineering, Personal Finance, Public Speaking, Astronomy, and Music Theory.</p>
       </div>
 
       <div class="extra-courses-grid">
         ${courses.map(course => `
           <div class="course-card glass-panel">
             <div class="course-header">
-              <span class="c-icon">${course.icon}</span>
+              <div class="course-icon-box">
+                ${course.iconFunc()}
+              </div>
               <span class="c-category">${course.category}</span>
             </div>
             <h3>${course.title}</h3>
             <p>${course.desc}</p>
             <div class="course-meta">
-              <span>📚 ${course.lessons} Lessons</span>
-              <span>🎓 ${course.level}</span>
+              <span class="meta-pill">📚 ${course.lessons} Lessons</span>
+              <span class="meta-pill">🎓 ${course.level}</span>
             </div>
             <button class="btn-primary btn-small full-width btn-start-course">
-              🚀 Enroll & Begin Course
+              ${I.rocket ? I.rocket("", 14) : ""}
+              <span>Enroll & Begin Lesson 1</span>
             </button>
           </div>
         `).join("")}
@@ -2523,7 +3124,7 @@ class ExtracurricularModule {
 
     containerEl.querySelectorAll(".btn-start-course").forEach(btn => {
       btn.addEventListener("click", () => {
-        alert("🎉 Enrolled in course! Opening interactive lesson module 1...");
+        alert("Enrolled in academy course! Opening interactive lesson workspace.");
       });
     });
   }
@@ -2534,7 +3135,7 @@ window.extracurricularModule = new ExtracurricularModule();
 
 /* File: app.js */
 /**
- * stud.io Central SPA Controller & Navigation Router
+ * stud.io Central SPA Controller & Navigation Router (WWDC27 Edition)
  */
 class StudioApp {
   constructor() {
@@ -2553,7 +3154,7 @@ class StudioApp {
   }
 
   init() {
-    console.log("⚡ stud.io App initializing...");
+    console.log("stud.io App initializing with WWDC27 Spatial Glass System...");
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has("dashboard") || urlParams.has("app")) {
       this.renderAppShell();
@@ -2593,26 +3194,60 @@ class StudioApp {
   }
 
   renderAppShell() {
+    const I = window.StudioIcons || {};
+
     this.rootEl.innerHTML = `
       <div class="app-shell">
         <!-- Sidebar -->
         <aside class="app-sidebar">
-          <div class="logo-area">
-            <span class="logo-icon">🚀</span>
+          <div class="logo-area" id="logo-home-btn" style="cursor: pointer;">
+            <div class="logo-icon-box">
+              ${I.rocket ? I.rocket("icon-purple", 24) : ""}
+            </div>
             <span class="logo-text gradient-text">stud.io</span>
           </div>
 
           <nav class="nav-menu">
-            <a class="nav-item active" data-tab="pattern">📊 Pattern Intelligence</a>
-            <a class="nav-item" data-tab="notebook">🎙️ NotebookLM Studio</a>
-            <a class="nav-item" data-tab="duolingo">🎮 Duolingo Track</a>
-            <a class="nav-item" data-tab="activerecall">🧠 Active Recall Suite</a>
-            <a class="nav-item" data-tab="pomodoro">⏱️ Pomodoro Studio</a>
-            <a class="nav-item" data-tab="neuro">🧠 NeuroAdapt Dashboard</a>
-            <a class="nav-item" data-tab="notes">📝 Running Notes</a>
-            <a class="nav-item" data-tab="exam">📝 Exam Simulator</a>
-            <a class="nav-item" data-tab="vault">📚 Digital Library</a>
-            <a class="nav-item" data-tab="extra">🌟 Beyond-Syllabus</a>
+            <a class="nav-item active" data-tab="pattern">
+              ${I.chart ? I.chart("nav-icon", 18) : ""}
+              <span>Pattern Intelligence</span>
+            </a>
+            <a class="nav-item" data-tab="notebook">
+              ${I.mic ? I.mic("nav-icon", 18) : ""}
+              <span>NotebookLM Studio</span>
+            </a>
+            <a class="nav-item" data-tab="duolingo">
+              ${I.gamepad ? I.gamepad("nav-icon", 18) : ""}
+              <span>Duolingo Track</span>
+            </a>
+            <a class="nav-item" data-tab="activerecall">
+              ${I.brain ? I.brain("nav-icon", 18) : ""}
+              <span>Active Recall Suite</span>
+            </a>
+            <a class="nav-item" data-tab="pomodoro">
+              ${I.timer ? I.timer("nav-icon", 18) : ""}
+              <span>Pomodoro Studio</span>
+            </a>
+            <a class="nav-item" data-tab="neuro">
+              ${I.zap ? I.zap("nav-icon", 18) : ""}
+              <span>NeuroAdapt Profile</span>
+            </a>
+            <a class="nav-item" data-tab="notes">
+              ${I.notes ? I.notes("nav-icon", 18) : ""}
+              <span>Running Notes</span>
+            </a>
+            <a class="nav-item" data-tab="exam">
+              ${I.exam ? I.exam("nav-icon", 18) : ""}
+              <span>Exam Simulator</span>
+            </a>
+            <a class="nav-item" data-tab="vault">
+              ${I.vault ? I.vault("nav-icon", 18) : ""}
+              <span>Digital Library</span>
+            </a>
+            <a class="nav-item" data-tab="extra">
+              ${I.sparkles ? I.sparkles("nav-icon", 18) : ""}
+              <span>Beyond-Syllabus</span>
+            </a>
           </nav>
         </aside>
 
@@ -2620,13 +3255,24 @@ class StudioApp {
         <main class="app-main">
           <!-- Top Navbar -->
           <header class="top-navbar">
-            <div class="user-badge">
-              <span>🌍 ${this.userState.country} (${this.userState.board.toUpperCase()})</span>
+            <div class="user-badge glass-panel">
+              ${I.globe ? I.globe("icon-cyan", 16) : ""}
+              <span><strong>${this.userState.country}</strong> (${this.userState.board.toUpperCase()})</span>
             </div>
+
             <div class="top-stats">
-              <div class="stat-pill streak">🔥 ${this.userState.streak} Days</div>
-              <div class="stat-pill xp">⚡ ${this.userState.xp} XP</div>
-              <div class="stat-pill hearts">❤️ ${this.userState.hearts}/5</div>
+              <div class="stat-pill streak">
+                ${I.flame ? I.flame("icon-amber", 16) : ""}
+                <span><strong>${this.userState.streak}</strong> Days</span>
+              </div>
+              <div class="stat-pill xp">
+                ${I.zap ? I.zap("icon-purple", 16) : ""}
+                <span><strong>${this.userState.xp}</strong> XP</span>
+              </div>
+              <div class="stat-pill hearts">
+                ${I.heart ? I.heart("icon-rose", 16) : ""}
+                <span><strong>${this.userState.hearts}/5</strong></span>
+              </div>
             </div>
           </header>
 
@@ -2635,6 +3281,11 @@ class StudioApp {
         </main>
       </div>
     `;
+
+    // Logo returns to landing page
+    this.rootEl.querySelector("#logo-home-btn").addEventListener("click", () => {
+      this.renderLandingPage();
+    });
 
     // Sidebar Tab Listeners
     const navItems = this.rootEl.querySelectorAll(".nav-item");
@@ -2693,5 +3344,4 @@ if (document.readyState === "loading") {
 } else {
   initStudioApp();
 }
-
 

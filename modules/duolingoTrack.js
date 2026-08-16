@@ -1,8 +1,9 @@
 /**
- * stud.io Duolingo-Style Gamified Quest Track Module
+ * stud.io Duolingo-Style Gamified Quest Track Module (WWDC27 Edition)
  */
 class DuolingoTrackModule {
   renderDuolingoTrack(containerEl) {
+    const I = window.StudioIcons || {};
     this.userHearts = 5;
     this.userXP = 1250;
     this.userStreak = 14;
@@ -10,43 +11,64 @@ class DuolingoTrackModule {
     containerEl.innerHTML = `
       <div class="module-header flex-header">
         <div>
-          <h2>🎮 Duolingo-Style Gamified Quest Track</h2>
+          <h2>Duolingo-Style Gamified Quest Track</h2>
           <p>Complete daily bite-sized quest nodes, climb the Diamond League, and maintain your streak flame.</p>
         </div>
 
         <!-- Gamification Stats Top Bar -->
         <div class="gamify-stats-bar glass-panel">
-          <div class="stat-pill streak">🔥 <strong id="streak-val">${this.userStreak}</strong> Days</div>
-          <div class="stat-pill xp">⚡ <strong id="xp-val">${this.userXP}</strong> XP</div>
-          <div class="stat-pill hearts">❤️ <strong id="hearts-val">${this.userHearts}/5</strong></div>
+          <div class="stat-pill streak">
+            ${I.flame ? I.flame("icon-amber", 16) : ""}
+            <span><strong id="streak-val">${this.userStreak}</strong> Days</span>
+          </div>
+          <div class="stat-pill xp">
+            ${I.zap ? I.zap("icon-purple", 16) : ""}
+            <span><strong id="xp-val">${this.userXP}</strong> XP</span>
+          </div>
+          <div class="stat-pill hearts">
+            ${I.heart ? I.heart("icon-rose", 16) : ""}
+            <span><strong id="hearts-val">${this.userHearts}/5</strong></span>
+          </div>
         </div>
       </div>
 
       <!-- Quest Node Map -->
       <div class="quest-map-container glass-panel">
         <svg class="quest-path-svg" width="100%" height="450">
-          <path d="M 100 80 Q 250 150, 400 80 T 700 80 T 900 250 T 600 380 T 200 380" stroke="rgba(139, 92, 246, 0.4)" stroke-width="6" fill="none" stroke-dasharray="8 8"/>
+          <path d="M 120 80 Q 280 160, 440 80 T 740 80 T 940 260 T 640 380 T 220 380" stroke="rgba(139, 92, 246, 0.35)" stroke-width="6" fill="none" stroke-dasharray="8 8"/>
         </svg>
 
         <div class="nodes-layer">
-          <div class="node-item node-unlocked" style="top: 50px; left: 80px;" data-node="node_1">
-            <div class="node-circle">🎯</div>
-            <span class="node-title">Node 1: Foundational Core</span>
+          <div class="node-item node-unlocked" style="top: 40px; left: 80px;" data-node="node_1">
+            <div class="node-circle active-pulse">
+              ${I.target ? I.target("", 26) : ""}
+            </div>
+            <span class="node-title">Foundational Core</span>
+            <span class="node-badge unlocked">Start</span>
           </div>
 
-          <div class="node-item node-locked" style="top: 50px; left: 380px;" data-node="node_2">
-            <div class="node-circle">⚡</div>
-            <span class="node-title">Node 2: Speed Round Sprint</span>
+          <div class="node-item node-unlocked" style="top: 40px; left: 400px;" data-node="node_2">
+            <div class="node-circle">
+              ${I.zap ? I.zap("", 26) : ""}
+            </div>
+            <span class="node-title">Formula Sprint</span>
+            <span class="node-badge">75 XP</span>
           </div>
 
-          <div class="node-item node-locked" style="top: 50px; left: 680px;" data-node="node_3">
-            <div class="node-circle">🎧</div>
-            <span class="node-title">Node 3: Audio Listening Card</span>
+          <div class="node-item node-unlocked" style="top: 40px; left: 700px;" data-node="node_3">
+            <div class="node-circle">
+              ${I.headphones ? I.headphones("", 26) : ""}
+            </div>
+            <span class="node-title">Audio Listening Card</span>
+            <span class="node-badge">100 XP</span>
           </div>
 
-          <div class="node-item node-boss node-locked" style="top: 220px; left: 850px;" data-node="node_5">
-            <div class="node-circle">👑</div>
-            <span class="node-title">Boss Battle: Past Paper Trap</span>
+          <div class="node-item node-boss node-unlocked" style="top: 220px; left: 880px;" data-node="node_5">
+            <div class="node-circle boss-gold">
+              ${I.crown ? I.crown("", 28) : ""}
+            </div>
+            <span class="node-title">Boss Battle: Exam Trap</span>
+            <span class="node-badge boss-badge">200 XP</span>
           </div>
         </div>
       </div>
@@ -67,6 +89,7 @@ class DuolingoTrackModule {
   }
 
   openQuizModal(containerEl, nodeId) {
+    const I = window.StudioIcons || {};
     const modalOverlay = containerEl.querySelector("#quiz-modal-overlay");
     const modalBody = containerEl.querySelector("#quiz-modal-body");
     modalOverlay.classList.remove("hidden");
@@ -82,10 +105,15 @@ class DuolingoTrackModule {
 
         modalBody.innerHTML = `
           <div class="victory-screen text-center">
-            <div class="victory-icon">🎉</div>
+            <div class="victory-icon-wrapper">
+              ${I.trophy ? I.trophy("icon-amber", 48) : ""}
+            </div>
             <h2>Quest Node Completed!</h2>
-            <p>You earned <strong>+100 XP</strong> and maintained your <strong>${this.userStreak}-day streak</strong>!</p>
-            <button id="btn-close-victory" class="btn-primary">Continue Quest Map ➜</button>
+            <p>You earned <strong class="text-accent">+100 XP</strong> and maintained your <strong class="text-amber">${this.userStreak}-day streak</strong>!</p>
+            <button id="btn-close-victory" class="btn-primary btn-large">
+              <span>Continue Quest Map</span>
+              ${I.arrowRight ? I.arrowRight("", 16) : ""}
+            </button>
           </div>
         `;
         modalBody.querySelector("#btn-close-victory").addEventListener("click", () => {
@@ -97,15 +125,18 @@ class DuolingoTrackModule {
       const q = quizzes[currentIdx];
       modalBody.innerHTML = `
         <div class="quiz-header">
-          <span>Question ${currentIdx + 1} of ${quizzes.length}</span>
-          <button id="btn-close-quiz" class="btn-close">&times;</button>
+          <span class="quiz-step-count">Question ${currentIdx + 1} of ${quizzes.length}</span>
+          <button id="btn-close-quiz" class="btn-close-circle">${I.x ? I.x("", 16) : "&times;"}</button>
         </div>
 
         <h3 class="quiz-question">${q.question}</h3>
 
         <div class="quiz-options">
           ${q.options.map((opt, idx) => `
-            <button class="quiz-opt-btn" data-opt="${idx}">${opt}</button>
+            <button class="quiz-opt-btn" data-opt="${idx}">
+              <span class="opt-key">${String.fromCharCode(65 + idx)}</span>
+              <span class="opt-label">${opt}</span>
+            </button>
           `).join("")}
         </div>
 
@@ -123,17 +154,27 @@ class DuolingoTrackModule {
           feedback.classList.remove("hidden");
 
           if (selected === q.correct) {
-            feedback.innerHTML = `<div class="feedback-box success">✅ Correct! ${q.explanation}</div>`;
-            if (window.neuroFeatureVector) window.neuroFeatureVector.updateFromQuiz(true, 1500, q.type);
+            feedback.innerHTML = `
+              <div class="feedback-box success">
+                ${I.checkCircle ? I.checkCircle("icon-emerald", 18) : ""}
+                <div><strong>Correct!</strong> ${q.explanation}</div>
+              </div>
+            `;
+            if (window.neuroFeatureVector) window.neuroFeatureVector.updateFromQuiz(true, 1200, q.type);
             setTimeout(() => {
               currentIdx++;
               renderCurrentQuiz();
-            }, 1600);
+            }, 1500);
           } else {
             this.userHearts = Math.max(0, this.userHearts - 1);
             containerEl.querySelector("#hearts-val").innerText = `${this.userHearts}/5`;
-            feedback.innerHTML = `<div class="feedback-box error">❌ Incorrect! ${q.explanation}</div>`;
-            if (window.neuroFeatureVector) window.neuroFeatureVector.updateFromQuiz(false, 3000, q.type);
+            feedback.innerHTML = `
+              <div class="feedback-box error">
+                ${I.alert ? I.alert("icon-rose", 18) : ""}
+                <div><strong>Incorrect!</strong> ${q.explanation}</div>
+              </div>
+            `;
+            if (window.neuroFeatureVector) window.neuroFeatureVector.updateFromQuiz(false, 2800, q.type);
           }
         });
       });
