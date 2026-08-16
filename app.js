@@ -19,7 +19,12 @@ class StudioApp {
 
   init() {
     console.log("⚡ stud.io App initializing...");
-    this.renderLandingPage();
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has("dashboard") || urlParams.has("app")) {
+      this.renderAppShell();
+    } else {
+      this.renderLandingPage();
+    }
   }
 
   renderLandingPage(defaultCountry = "USA") {
@@ -27,8 +32,12 @@ class StudioApp {
     const landingContainer = document.getElementById("landing-container");
 
     if (window.landingPageModule) {
-      window.landingPageModule.renderLandingPage(landingContainer, (country) => {
-        this.openOnboardingModal(country || defaultCountry);
+      window.landingPageModule.renderLandingPage(landingContainer, (country, directDashboard) => {
+        if (directDashboard) {
+          this.renderAppShell();
+        } else {
+          this.openOnboardingModal(country || defaultCountry);
+        }
       });
     }
   }

@@ -1121,7 +1121,10 @@ class LandingPageModule {
 
         <div class="landing-cta-group">
           <button id="btn-launch-app-hero" class="btn-primary btn-large">
-            🚀 Launch stud.io (Free)
+            🚀 Launch stud.io Onboarding
+          </button>
+          <button id="btn-direct-dashboard-hero" class="btn-secondary btn-large" style="background: rgba(139, 92, 246, 0.25); border-color: var(--accent-purple);">
+            ⚡ Enter Dashboard Directly
           </button>
           <a href="#features-section" class="btn-secondary btn-large">
             🔍 Explore All Features
@@ -1252,6 +1255,10 @@ class LandingPageModule {
 
     // Event Listeners
     containerEl.querySelector("#btn-launch-app-hero").addEventListener("click", () => onLaunchApp());
+    const directBtn = containerEl.querySelector("#btn-direct-dashboard-hero");
+    if (directBtn) {
+      directBtn.addEventListener("click", () => onLaunchApp(null, true));
+    }
     containerEl.querySelector("#btn-launch-app-footer").addEventListener("click", () => onLaunchApp());
 
     containerEl.querySelectorAll(".country-card").forEach(card => {
@@ -2547,7 +2554,12 @@ class StudioApp {
 
   init() {
     console.log("⚡ stud.io App initializing...");
-    this.renderLandingPage();
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has("dashboard") || urlParams.has("app")) {
+      this.renderAppShell();
+    } else {
+      this.renderLandingPage();
+    }
   }
 
   renderLandingPage(defaultCountry = "USA") {
@@ -2555,8 +2567,12 @@ class StudioApp {
     const landingContainer = document.getElementById("landing-container");
 
     if (window.landingPageModule) {
-      window.landingPageModule.renderLandingPage(landingContainer, (country) => {
-        this.openOnboardingModal(country || defaultCountry);
+      window.landingPageModule.renderLandingPage(landingContainer, (country, directDashboard) => {
+        if (directDashboard) {
+          this.renderAppShell();
+        } else {
+          this.openOnboardingModal(country || defaultCountry);
+        }
       });
     }
   }

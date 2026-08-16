@@ -17,7 +17,10 @@ class LandingPageModule {
 
         <div class="landing-cta-group">
           <button id="btn-launch-app-hero" class="btn-primary btn-large">
-            🚀 Launch stud.io (Free)
+            🚀 Launch stud.io Onboarding
+          </button>
+          <button id="btn-direct-dashboard-hero" class="btn-secondary btn-large" style="background: rgba(139, 92, 246, 0.25); border-color: var(--accent-purple);">
+            ⚡ Enter Dashboard Directly
           </button>
           <a href="#features-section" class="btn-secondary btn-large">
             🔍 Explore All Features
@@ -148,6 +151,10 @@ class LandingPageModule {
 
     // Event Listeners
     containerEl.querySelector("#btn-launch-app-hero").addEventListener("click", () => onLaunchApp());
+    const directBtn = containerEl.querySelector("#btn-direct-dashboard-hero");
+    if (directBtn) {
+      directBtn.addEventListener("click", () => onLaunchApp(null, true));
+    }
     containerEl.querySelector("#btn-launch-app-footer").addEventListener("click", () => onLaunchApp());
 
     containerEl.querySelectorAll(".country-card").forEach(card => {
