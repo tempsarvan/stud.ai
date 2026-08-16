@@ -6,7 +6,7 @@ class StudentNotesModule {
     containerEl.innerHTML = `
       <div class="module-header">
         <h2>📝 Student Running Notes & Live NeuroAdapt™ Analyzer</h2>
-        <p>Type your rough session notes here. Our neural engine scans for confusion markers (`???`, `unclear`, missing formulas) and automatically creates patch quizzes.</p>
+        <p>Type your rough session notes here. Our neural engine scans for confusion markers (<code>???</code>, <code>unclear</code>, missing formulas) and automatically creates patch quizzes.</p>
       </div>
 
       <div class="notes-layout">
