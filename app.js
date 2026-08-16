@@ -136,8 +136,17 @@ class StudioApp {
   }
 }
 
-// Initialize on DOM ready
-document.addEventListener("DOMContentLoaded", () => {
-  window.studioApp = new StudioApp();
-  window.studioApp.init();
-});
+// Initialize on DOM ready or immediately if already loaded
+function initStudioApp() {
+  if (!window.studioApp) {
+    window.studioApp = new StudioApp();
+    window.studioApp.init();
+  }
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initStudioApp);
+} else {
+  initStudioApp();
+}
+

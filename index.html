@@ -15,7 +15,24 @@
 </head>
 <body>
   <!-- Container for Landing Page vs App View Shell -->
-  <div id="app-root"></div>
+  <div id="app-root">
+    <section class="landing-hero" style="min-height: 80vh; justify-content: center;">
+      <div class="landing-badge">✨ Powered by Pattern Intelligence & NeuroAdapt™ Neural Engine</div>
+      <h1 class="landing-title">
+        The Only Study App <br/>
+        <span class="gradient-text">You Will Ever Need.</span>
+      </h1>
+      <p class="landing-subtitle">
+        Pre-downloaded past paper patterns, NotebookLM dual-host podcasts, Duolingo-style quest tracks, 
+        and active recall built for students worldwide.
+      </p>
+      <div class="landing-cta-group">
+        <button onclick="window.studioApp && window.studioApp.openOnboardingModal()" class="btn-primary btn-large">
+          🚀 Launch stud.io (Free)
+        </button>
+      </div>
+    </section>
+  </div>
 
   <!-- Database & Vector Engine -->
   <script src="data/syllabi.js"></script>
