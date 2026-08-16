@@ -1,4 +1,4 @@
-/* stud.io Unified Bundle */
+/* stud.io WWDC27 Edition Unified Bundle */
 
 /* File: data/syllabi.js */
 /**
