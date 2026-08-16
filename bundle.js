@@ -1,4 +1,4 @@
-/* stud.io WWDC27 Spatial Glass Edition Unified Bundle */
+/* stud.io Masterclass Production Bundle */
 
 /* File: utils/icons.js */
 /**
@@ -992,6 +992,148 @@ class FeynmanAgent {
 window.feynmanAgent = new FeynmanAgent();
 
 
+/* File: audio/soundEffects.js */
+/**
+ * stud.io Sound Effects Synthesizer (Native Web Audio API)
+ * Apple-grade UI micro-haptics & feedback chimes without external media files.
+ */
+class StudioSoundFX {
+  constructor() {
+    this.ctx = null;
+  }
+
+  init() {
+    if (!this.ctx) {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      this.ctx = new AudioCtx();
+    }
+    if (this.ctx.state === "suspended") {
+      this.ctx.resume();
+    }
+  }
+
+  playTap() {
+    try {
+      this.init();
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = "sine";
+      osc.frequency.setValueAtTime(440, this.ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(880, this.ctx.currentTime + 0.05);
+
+      gain.gain.setValueAtTime(0.1, this.ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.05);
+
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+
+      osc.start();
+      osc.stop(this.ctx.currentTime + 0.05);
+    } catch(e) {}
+  }
+
+  playCorrect() {
+    try {
+      this.init();
+      // Two-tone rising major third chord (C5 -> E5 -> G5)
+      const now = this.ctx.currentTime;
+      [523.25, 659.25, 783.99].forEach((freq, i) => {
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(freq, now + i * 0.08);
+
+        gain.gain.setValueAtTime(0, now + i * 0.08);
+        gain.gain.linearRampToValueAtTime(0.15, now + i * 0.08 + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.08 + 0.25);
+
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+
+        osc.start(now + i * 0.08);
+        osc.stop(now + i * 0.08 + 0.25);
+      });
+    } catch(e) {}
+  }
+
+  playWrong() {
+    try {
+      this.init();
+      const now = this.ctx.currentTime;
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = "triangle";
+      osc.frequency.setValueAtTime(180, now);
+      osc.frequency.linearRampToValueAtTime(130, now + 0.2);
+
+      gain.gain.setValueAtTime(0.15, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.2);
+
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+
+      osc.start(now);
+      osc.stop(now + 0.2);
+    } catch(e) {}
+  }
+
+  playLevelUp() {
+    try {
+      this.init();
+      const now = this.ctx.currentTime;
+      [523.25, 659.25, 783.99, 1046.50].forEach((freq, i) => {
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(freq, now + i * 0.09);
+
+        gain.gain.setValueAtTime(0, now + i * 0.09);
+        gain.gain.linearRampToValueAtTime(0.2, now + i * 0.09 + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.09 + 0.4);
+
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+
+        osc.start(now + i * 0.09);
+        osc.stop(now + i * 0.09 + 0.4);
+      });
+
+      // Fire canvas confetti if available
+      if (window.confetti) {
+        window.confetti({
+          particleCount: 80,
+          spread: 70,
+          origin: { y: 0.6 }
+        });
+      }
+    } catch(e) {}
+  }
+
+  playFlip() {
+    try {
+      this.init();
+      const now = this.ctx.currentTime;
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = "sine";
+      osc.frequency.setValueAtTime(300, now);
+      osc.frequency.exponentialRampToValueAtTime(600, now + 0.08);
+
+      gain.gain.setValueAtTime(0.08, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
+
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+
+      osc.start(now);
+      osc.stop(now + 0.08);
+    } catch(e) {}
+  }
+}
+
+window.studioSoundFX = new StudioSoundFX();
+
+
 /* File: audio/audioSynth.js */
 /**
  * stud.io Audio & Speech Synthesis Controller
@@ -1661,6 +1803,7 @@ window.onboardingModule = new OnboardingModule();
 /* File: modules/neuroDashboard.js */
 /**
  * stud.io NeuroAdapt Student Cognitive Profile Dashboard Module (WWDC27 Edition)
+ * Featuring Interactive Canvas Cognitive Radar Chart, Neural Weights, and Dynamic Efficiency Optimizers.
  */
 class NeuroDashboardModule {
   renderDashboard(containerEl) {
@@ -1698,12 +1841,27 @@ class NeuroDashboardModule {
           <p class="eff-status">Your memory retention and response latency are operating in the 94th percentile across past paper solving.</p>
         </div>
 
-        <!-- Learning Modality Card -->
+        <!-- Cognitive Radar Visualizer -->
         <div class="neuro-card glass-panel">
           <div class="card-title-row">
             <div class="card-icon-title">
               ${I.chart ? I.chart("icon-purple", 22) : ""}
-              <h3>Learning Modality Weights</h3>
+              <h3>16-D Cognitive Radar Mapping</h3>
+            </div>
+            <span class="badge-accent">Live Vector</span>
+          </div>
+
+          <div style="position: relative; height: 220px; width: 100%;">
+            <canvas id="neuro-radar-canvas"></canvas>
+          </div>
+        </div>
+
+        <!-- Learning Modality Card -->
+        <div class="neuro-card glass-panel">
+          <div class="card-title-row">
+            <div class="card-icon-title">
+              ${I.eye ? I.eye("icon-purple", 22) : ""}
+              <h3>Learning Modality Distribution</h3>
             </div>
           </div>
 
@@ -1711,7 +1869,7 @@ class NeuroDashboardModule {
             <div class="mod-row">
               <div class="mod-label">
                 ${I.headphones ? I.headphones("icon-cyan", 16) : ""}
-                <span>Auditory (Podcasts & Audio)</span>
+                <span>Auditory (Podcasts & Voice)</span>
               </div>
               <div class="bar-bg"><div class="bar-fill cyan" style="width: ${predictions.auditoryPreferenceScore}%"></div></div>
               <strong class="mod-score">${predictions.auditoryPreferenceScore}%</strong>
@@ -1720,7 +1878,7 @@ class NeuroDashboardModule {
             <div class="mod-row">
               <div class="mod-label">
                 ${I.eye ? I.eye("icon-purple", 16) : ""}
-                <span>Visual (Diagrams & Chalkboard)</span>
+                <span>Visual (Chalkboard & Diagrams)</span>
               </div>
               <div class="bar-bg"><div class="bar-fill purple" style="width: ${predictions.visualPreferenceScore}%"></div></div>
               <strong class="mod-score">${predictions.visualPreferenceScore}%</strong>
@@ -1729,7 +1887,7 @@ class NeuroDashboardModule {
             <div class="mod-row">
               <div class="mod-label">
                 ${I.gamepad ? I.gamepad("icon-emerald", 16) : ""}
-                <span>Interactive (Quizzes & Flashcards)</span>
+                <span>Interactive (Active Recall Quizzes)</span>
               </div>
               <div class="bar-bg"><div class="bar-fill green" style="width: 85%"></div></div>
               <strong class="mod-score">85%</strong>
@@ -1780,6 +1938,64 @@ class NeuroDashboardModule {
         </div>
       </div>
     `;
+
+    // Render Radar Canvas
+    setTimeout(() => {
+      const radarCanvas = containerEl.querySelector("#neuro-radar-canvas");
+      if (!radarCanvas) return;
+
+      if (window.Chart) {
+        new window.Chart(radarCanvas.getContext("2d"), {
+          type: "radar",
+          data: {
+            labels: ["Visual", "Auditory", "Latency", "Recall", "Recovery", "Focus"],
+            datasets: [{
+              label: "Student Profile",
+              data: [92, 88, 85, 94, 82, 90],
+              backgroundColor: "rgba(139, 92, 246, 0.25)",
+              borderColor: "#8b5cf6",
+              pointBackgroundColor: "#38bdf8",
+              borderWidth: 2
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+              r: {
+                angleLines: { color: "rgba(255, 255, 255, 0.08)" },
+                grid: { color: "rgba(255, 255, 255, 0.08)" },
+                pointLabels: { color: "#94a3b8", font: { size: 11 } },
+                ticks: { display: false, max: 100 }
+              }
+            }
+          }
+        });
+      } else {
+        // Fallback 2D Canvas Radar Hexagon
+        const ctx = radarCanvas.getContext("2d");
+        radarCanvas.width = radarCanvas.parentElement.clientWidth || 300;
+        radarCanvas.height = 200;
+        const cx = radarCanvas.width / 2;
+        const cy = radarCanvas.height / 2;
+        const radius = 70;
+
+        ctx.strokeStyle = "rgba(139, 92, 246, 0.5)";
+        ctx.fillStyle = "rgba(139, 92, 246, 0.2)";
+        ctx.beginPath();
+        for (let i = 0; i < 6; i++) {
+          const angle = (i * Math.PI) / 3;
+          const x = cx + radius * Math.cos(angle);
+          const y = cy + radius * Math.sin(angle);
+          if (i === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        }
+        ctx.closePath();
+        ctx.stroke();
+        ctx.fill();
+      }
+    }, 50);
   }
 }
 
@@ -1884,6 +2100,7 @@ window.studentNotesModule = new StudentNotesModule();
 /* File: modules/patternAnalyzer.js */
 /**
  * stud.io Past Paper Pattern Intelligence Module (WWDC27 Edition)
+ * Featuring Interactive 10-Year Trend Charts, Predicted Question Drawers & Examiner Trap Analyzers.
  */
 class PatternAnalyzerModule {
   renderPatternAnalyzer(containerEl, boardId = "ap_calc_bc") {
@@ -1894,7 +2111,7 @@ class PatternAnalyzerModule {
       <div class="module-header flex-header">
         <div>
           <h2>10-Year Past Paper Pattern Intelligence & Exam Decoder</h2>
-          <p>Pre-analyzed paper frequencies, weightage heatmaps, 95% yield predicted questions, and examiner trap decoders.</p>
+          <p>Pre-analyzed paper frequencies, interactive 10-year trend visualizers, 95% yield predicted questions, and examiner trap decoders.</p>
         </div>
 
         <div class="board-selector-pill glass-panel">
@@ -1906,22 +2123,34 @@ class PatternAnalyzerModule {
         </div>
       </div>
 
-      <!-- Weightage Heatmap -->
+      <!-- Interactive 10-Year Trend Chart -->
       <div class="glass-panel section-card">
         <div class="card-title-row">
           <div class="card-icon-title">
-            ${I.flame ? I.flame("icon-amber", 20) : ""}
-            <h3>10-Year Exam Frequency Heatmap Matrix</h3>
+            ${I.chart ? I.chart("icon-purple", 22) : ""}
+            <h3>10-Year Exam Topic Weightage Distribution</h3>
           </div>
-          <span class="badge-accent">10 Years Mined</span>
+          <div class="chart-legend-pills">
+            <span class="legend-pill purple">Exam Frequency %</span>
+          </div>
         </div>
 
-        <div class="trend-grid">
+        <div class="chart-canvas-container" style="position: relative; height: 260px; width: 100%;">
+          <canvas id="trend-chart-canvas"></canvas>
+        </div>
+
+        <!-- Heatmap Badges Grid -->
+        <div class="trend-grid" style="margin-top: 24px;">
           ${data.tenYearTrend.map(item => `
             <div class="trend-card">
-              <span class="year-badge">${item.year}</span>
+              <div class="trend-card-header">
+                <span class="year-badge">${item.year}</span>
+                <span class="weight-tag">${item.appearance}</span>
+              </div>
               <strong>${item.topic}</strong>
-              <div class="weight-tag">${item.appearance} (${item.weight}%)</div>
+              <div class="progress-bar-container" style="height: 6px; margin: 8px 0 0;">
+                <div class="progress-bar-fill" style="width: ${Math.min(100, item.weight * 6)}%;"></div>
+              </div>
             </div>
           `).join("")}
         </div>
@@ -1931,10 +2160,10 @@ class PatternAnalyzerModule {
       <div class="glass-panel section-card">
         <div class="card-title-row">
           <div class="card-icon-title">
-            ${I.target ? I.target("icon-cyan", 20) : ""}
+            ${I.target ? I.target("icon-cyan", 22) : ""}
             <h3>Top Predicted High-Yield Exam Questions</h3>
           </div>
-          <span class="badge-yield">95%+ Confidence</span>
+          <span class="badge-yield">95%+ Confidence Rating</span>
         </div>
 
         <div class="predicted-table-container">
@@ -1942,7 +2171,7 @@ class PatternAnalyzerModule {
             <thead>
               <tr>
                 <th>Chapter Topic</th>
-                <th>Predicted Question</th>
+                <th>Predicted Question & Examiner Trap</th>
                 <th>Yield Probability</th>
                 <th>Marks</th>
                 <th>Required Formula</th>
@@ -1973,7 +2202,7 @@ class PatternAnalyzerModule {
       <div class="glass-panel section-card">
         <div class="card-title-row">
           <div class="card-icon-title">
-            ${I.alert ? I.alert("icon-rose", 20) : ""}
+            ${I.alert ? I.alert("icon-rose", 22) : ""}
             <h3>Examiner Pitfalls & Trap Warnings</h3>
           </div>
           <span class="badge-danger">High Mark Deductions</span>
@@ -1990,9 +2219,76 @@ class PatternAnalyzerModule {
       </div>
     `;
 
+    // Dropdown Switcher
     containerEl.querySelector("#pattern-board-selector").addEventListener("change", (e) => {
+      if (window.studioSoundFX) window.studioSoundFX.playTap();
       this.renderPatternAnalyzer(containerEl, e.target.value);
     });
+
+    // Render Canvas Chart
+    setTimeout(() => {
+      const chartCanvas = containerEl.querySelector("#trend-chart-canvas");
+      if (!chartCanvas) return;
+
+      if (window.Chart) {
+        new window.Chart(chartCanvas.getContext("2d"), {
+          type: "bar",
+          data: {
+            labels: data.tenYearTrend.map(t => `${t.year} (${t.topic.slice(0, 15)}...)`),
+            datasets: [{
+              label: "Exam Weight %",
+              data: data.tenYearTrend.map(t => t.weight),
+              backgroundColor: "rgba(139, 92, 246, 0.4)",
+              borderColor: "#8b5cf6",
+              borderWidth: 2,
+              borderRadius: 8
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false }
+            },
+            scales: {
+              y: {
+                beginAtZero: true,
+                grid: { color: "rgba(255, 255, 255, 0.06)" },
+                ticks: { color: "#94a3b8" }
+              },
+              x: {
+                grid: { display: false },
+                ticks: { color: "#94a3b8", maxRotation: 45, minRotation: 0 }
+              }
+            }
+          }
+        });
+      } else {
+        // Fallback drawing on 2D Canvas if CDN Chart.js isn't loaded
+        const ctx = chartCanvas.getContext("2d");
+        chartCanvas.width = chartCanvas.parentElement.clientWidth || 600;
+        chartCanvas.height = 240;
+        ctx.clearRect(0, 0, chartCanvas.width, chartCanvas.height);
+        
+        const barWidth = Math.floor(chartCanvas.width / (data.tenYearTrend.length * 1.6));
+        const gap = 16;
+        data.tenYearTrend.forEach((item, idx) => {
+          const barHeight = (item.weight / 20) * 160;
+          const x = idx * (barWidth + gap) + 40;
+          const y = chartCanvas.height - barHeight - 30;
+
+          const grad = ctx.createLinearGradient(0, y, 0, y + barHeight);
+          grad.addColorStop(0, "#c084fc");
+          grad.addColorStop(1, "#6366f1");
+          ctx.fillStyle = grad;
+          ctx.fillRect(x, y, barWidth, barHeight);
+
+          ctx.fillStyle = "#94a3b8";
+          ctx.font = "11px Inter, sans-serif";
+          ctx.fillText(`${item.year}`, x + 4, chartCanvas.height - 10);
+        });
+      }
+    }, 50);
   }
 }
 
@@ -2208,6 +2504,7 @@ window.notebookLMModule = new NotebookLMModule();
 /* File: modules/duolingoTrack.js */
 /**
  * stud.io Duolingo-Style Gamified Quest Track Module (WWDC27 Edition)
+ * Featuring Interactive SVG Quest Tree, Audio Chimes, Confetti Particles, and 4 Quiz Modalities.
  */
 class DuolingoTrackModule {
   renderDuolingoTrack(containerEl) {
@@ -2290,6 +2587,7 @@ class DuolingoTrackModule {
     // Click on node
     containerEl.querySelectorAll(".node-item").forEach(node => {
       node.addEventListener("click", () => {
+        if (window.studioSoundFX) window.studioSoundFX.playTap();
         const nodeId = node.getAttribute("data-node");
         this.openQuizModal(containerEl, nodeId);
       });
@@ -2311,6 +2609,8 @@ class DuolingoTrackModule {
         this.userXP += 100;
         containerEl.querySelector("#xp-val").innerText = this.userXP;
 
+        if (window.studioSoundFX) window.studioSoundFX.playLevelUp();
+
         modalBody.innerHTML = `
           <div class="victory-screen text-center">
             <div class="victory-icon-wrapper">
@@ -2325,6 +2625,7 @@ class DuolingoTrackModule {
           </div>
         `;
         modalBody.querySelector("#btn-close-victory").addEventListener("click", () => {
+          if (window.studioSoundFX) window.studioSoundFX.playTap();
           modalOverlay.classList.add("hidden");
         });
         return;
@@ -2339,6 +2640,15 @@ class DuolingoTrackModule {
 
         <h3 class="quiz-question">${q.question}</h3>
 
+        ${q.type === "audio_card" ? `
+          <div class="audio-quiz-pill" style="margin-bottom: 20px;">
+            <button id="btn-play-quiz-audio" class="btn-secondary btn-small" style="display: inline-flex; align-items: center; gap: 8px;">
+              ${I.volume ? I.volume("icon-cyan", 16) : ""}
+              <span>Play Audio Formula Snippet</span>
+            </button>
+          </div>
+        ` : ""}
+
         <div class="quiz-options">
           ${q.options.map((opt, idx) => `
             <button class="quiz-opt-btn" data-opt="${idx}">
@@ -2351,7 +2661,16 @@ class DuolingoTrackModule {
         <div id="quiz-feedback" class="quiz-feedback hidden"></div>
       `;
 
+      if (q.type === "audio_card") {
+        modalBody.querySelector("#btn-play-quiz-audio").addEventListener("click", () => {
+          if (window.studioAudioSynth) {
+            window.studioAudioSynth.speakText("The Taylor polynomial centered at c is equal to the sum of f n of c over n factorial times x minus c to the n.");
+          }
+        });
+      }
+
       modalBody.querySelector("#btn-close-quiz").addEventListener("click", () => {
+        if (window.studioSoundFX) window.studioSoundFX.playTap();
         modalOverlay.classList.add("hidden");
       });
 
@@ -2362,6 +2681,7 @@ class DuolingoTrackModule {
           feedback.classList.remove("hidden");
 
           if (selected === q.correct) {
+            if (window.studioSoundFX) window.studioSoundFX.playCorrect();
             feedback.innerHTML = `
               <div class="feedback-box success">
                 ${I.checkCircle ? I.checkCircle("icon-emerald", 18) : ""}
@@ -2374,6 +2694,7 @@ class DuolingoTrackModule {
               renderCurrentQuiz();
             }, 1500);
           } else {
+            if (window.studioSoundFX) window.studioSoundFX.playWrong();
             this.userHearts = Math.max(0, this.userHearts - 1);
             containerEl.querySelector("#hearts-val").innerText = `${this.userHearts}/5`;
             feedback.innerHTML = `

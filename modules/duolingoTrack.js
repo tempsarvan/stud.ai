@@ -1,5 +1,6 @@
 /**
  * stud.io Duolingo-Style Gamified Quest Track Module (WWDC27 Edition)
+ * Featuring Interactive SVG Quest Tree, Audio Chimes, Confetti Particles, and 4 Quiz Modalities.
  */
 class DuolingoTrackModule {
   renderDuolingoTrack(containerEl) {
@@ -82,6 +83,7 @@ class DuolingoTrackModule {
     // Click on node
     containerEl.querySelectorAll(".node-item").forEach(node => {
       node.addEventListener("click", () => {
+        if (window.studioSoundFX) window.studioSoundFX.playTap();
         const nodeId = node.getAttribute("data-node");
         this.openQuizModal(containerEl, nodeId);
       });
@@ -103,6 +105,8 @@ class DuolingoTrackModule {
         this.userXP += 100;
         containerEl.querySelector("#xp-val").innerText = this.userXP;
 
+        if (window.studioSoundFX) window.studioSoundFX.playLevelUp();
+
         modalBody.innerHTML = `
           <div class="victory-screen text-center">
             <div class="victory-icon-wrapper">
@@ -117,6 +121,7 @@ class DuolingoTrackModule {
           </div>
         `;
         modalBody.querySelector("#btn-close-victory").addEventListener("click", () => {
+          if (window.studioSoundFX) window.studioSoundFX.playTap();
           modalOverlay.classList.add("hidden");
         });
         return;
@@ -131,6 +136,15 @@ class DuolingoTrackModule {
 
         <h3 class="quiz-question">${q.question}</h3>
 
+        ${q.type === "audio_card" ? `
+          <div class="audio-quiz-pill" style="margin-bottom: 20px;">
+            <button id="btn-play-quiz-audio" class="btn-secondary btn-small" style="display: inline-flex; align-items: center; gap: 8px;">
+              ${I.volume ? I.volume("icon-cyan", 16) : ""}
+              <span>Play Audio Formula Snippet</span>
+            </button>
+          </div>
+        ` : ""}
+
         <div class="quiz-options">
           ${q.options.map((opt, idx) => `
             <button class="quiz-opt-btn" data-opt="${idx}">
@@ -143,7 +157,16 @@ class DuolingoTrackModule {
         <div id="quiz-feedback" class="quiz-feedback hidden"></div>
       `;
 
+      if (q.type === "audio_card") {
+        modalBody.querySelector("#btn-play-quiz-audio").addEventListener("click", () => {
+          if (window.studioAudioSynth) {
+            window.studioAudioSynth.speakText("The Taylor polynomial centered at c is equal to the sum of f n of c over n factorial times x minus c to the n.");
+          }
+        });
+      }
+
       modalBody.querySelector("#btn-close-quiz").addEventListener("click", () => {
+        if (window.studioSoundFX) window.studioSoundFX.playTap();
         modalOverlay.classList.add("hidden");
       });
 
@@ -154,6 +177,7 @@ class DuolingoTrackModule {
           feedback.classList.remove("hidden");
 
           if (selected === q.correct) {
+            if (window.studioSoundFX) window.studioSoundFX.playCorrect();
             feedback.innerHTML = `
               <div class="feedback-box success">
                 ${I.checkCircle ? I.checkCircle("icon-emerald", 18) : ""}
@@ -166,6 +190,7 @@ class DuolingoTrackModule {
               renderCurrentQuiz();
             }, 1500);
           } else {
+            if (window.studioSoundFX) window.studioSoundFX.playWrong();
             this.userHearts = Math.max(0, this.userHearts - 1);
             containerEl.querySelector("#hearts-val").innerText = `${this.userHearts}/5`;
             feedback.innerHTML = `

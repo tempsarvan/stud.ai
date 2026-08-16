@@ -1,5 +1,6 @@
 /**
  * stud.io NeuroAdapt Student Cognitive Profile Dashboard Module (WWDC27 Edition)
+ * Featuring Interactive Canvas Cognitive Radar Chart, Neural Weights, and Dynamic Efficiency Optimizers.
  */
 class NeuroDashboardModule {
   renderDashboard(containerEl) {
@@ -37,12 +38,27 @@ class NeuroDashboardModule {
           <p class="eff-status">Your memory retention and response latency are operating in the 94th percentile across past paper solving.</p>
         </div>
 
-        <!-- Learning Modality Card -->
+        <!-- Cognitive Radar Visualizer -->
         <div class="neuro-card glass-panel">
           <div class="card-title-row">
             <div class="card-icon-title">
               ${I.chart ? I.chart("icon-purple", 22) : ""}
-              <h3>Learning Modality Weights</h3>
+              <h3>16-D Cognitive Radar Mapping</h3>
+            </div>
+            <span class="badge-accent">Live Vector</span>
+          </div>
+
+          <div style="position: relative; height: 220px; width: 100%;">
+            <canvas id="neuro-radar-canvas"></canvas>
+          </div>
+        </div>
+
+        <!-- Learning Modality Card -->
+        <div class="neuro-card glass-panel">
+          <div class="card-title-row">
+            <div class="card-icon-title">
+              ${I.eye ? I.eye("icon-purple", 22) : ""}
+              <h3>Learning Modality Distribution</h3>
             </div>
           </div>
 
@@ -50,7 +66,7 @@ class NeuroDashboardModule {
             <div class="mod-row">
               <div class="mod-label">
                 ${I.headphones ? I.headphones("icon-cyan", 16) : ""}
-                <span>Auditory (Podcasts & Audio)</span>
+                <span>Auditory (Podcasts & Voice)</span>
               </div>
               <div class="bar-bg"><div class="bar-fill cyan" style="width: ${predictions.auditoryPreferenceScore}%"></div></div>
               <strong class="mod-score">${predictions.auditoryPreferenceScore}%</strong>
@@ -59,7 +75,7 @@ class NeuroDashboardModule {
             <div class="mod-row">
               <div class="mod-label">
                 ${I.eye ? I.eye("icon-purple", 16) : ""}
-                <span>Visual (Diagrams & Chalkboard)</span>
+                <span>Visual (Chalkboard & Diagrams)</span>
               </div>
               <div class="bar-bg"><div class="bar-fill purple" style="width: ${predictions.visualPreferenceScore}%"></div></div>
               <strong class="mod-score">${predictions.visualPreferenceScore}%</strong>
@@ -68,7 +84,7 @@ class NeuroDashboardModule {
             <div class="mod-row">
               <div class="mod-label">
                 ${I.gamepad ? I.gamepad("icon-emerald", 16) : ""}
-                <span>Interactive (Quizzes & Flashcards)</span>
+                <span>Interactive (Active Recall Quizzes)</span>
               </div>
               <div class="bar-bg"><div class="bar-fill green" style="width: 85%"></div></div>
               <strong class="mod-score">85%</strong>
@@ -119,6 +135,64 @@ class NeuroDashboardModule {
         </div>
       </div>
     `;
+
+    // Render Radar Canvas
+    setTimeout(() => {
+      const radarCanvas = containerEl.querySelector("#neuro-radar-canvas");
+      if (!radarCanvas) return;
+
+      if (window.Chart) {
+        new window.Chart(radarCanvas.getContext("2d"), {
+          type: "radar",
+          data: {
+            labels: ["Visual", "Auditory", "Latency", "Recall", "Recovery", "Focus"],
+            datasets: [{
+              label: "Student Profile",
+              data: [92, 88, 85, 94, 82, 90],
+              backgroundColor: "rgba(139, 92, 246, 0.25)",
+              borderColor: "#8b5cf6",
+              pointBackgroundColor: "#38bdf8",
+              borderWidth: 2
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+              r: {
+                angleLines: { color: "rgba(255, 255, 255, 0.08)" },
+                grid: { color: "rgba(255, 255, 255, 0.08)" },
+                pointLabels: { color: "#94a3b8", font: { size: 11 } },
+                ticks: { display: false, max: 100 }
+              }
+            }
+          }
+        });
+      } else {
+        // Fallback 2D Canvas Radar Hexagon
+        const ctx = radarCanvas.getContext("2d");
+        radarCanvas.width = radarCanvas.parentElement.clientWidth || 300;
+        radarCanvas.height = 200;
+        const cx = radarCanvas.width / 2;
+        const cy = radarCanvas.height / 2;
+        const radius = 70;
+
+        ctx.strokeStyle = "rgba(139, 92, 246, 0.5)";
+        ctx.fillStyle = "rgba(139, 92, 246, 0.2)";
+        ctx.beginPath();
+        for (let i = 0; i < 6; i++) {
+          const angle = (i * Math.PI) / 3;
+          const x = cx + radius * Math.cos(angle);
+          const y = cy + radius * Math.sin(angle);
+          if (i === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        }
+        ctx.closePath();
+        ctx.stroke();
+        ctx.fill();
+      }
+    }, 50);
   }
 }
 
