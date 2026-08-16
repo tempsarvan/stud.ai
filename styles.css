@@ -1,0 +1,583 @@
+/* ==========================================================================
+   stud.io — Design Tokens, CSS Variables & Glassmorphism Theme System
+   ========================================================================== */
+
+:root {
+  --bg-dark: #0b0f19;
+  --bg-card: rgba(30, 41, 59, 0.7);
+  --bg-card-hover: rgba(51, 65, 85, 0.8);
+  --border-glass: rgba(255, 255, 255, 0.08);
+
+  --accent-purple: #8b5cf6;
+  --accent-purple-glow: rgba(139, 92, 246, 0.4);
+  --accent-cyan: #06b6d4;
+  --accent-emerald: #10b981;
+  --accent-amber: #f59e0b;
+  --accent-rose: #ef4444;
+
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+
+  --font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Fira Code', monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: var(--font-family);
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+
+/* Glassmorphism Panels */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-glass);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Typography & Utility Gradients */
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Buttons */
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-purple), #7c3aed);
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 15px var(--accent-purple-glow);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.6);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-main);
+  border: 1px solid var(--border-glass);
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.btn-large {
+  padding: 16px 32px;
+  font-size: 1.1rem;
+}
+
+.btn-small {
+  padding: 8px 16px;
+  font-size: 0.85rem;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ==========================================================================
+   Landing Page Styling
+   ========================================================================== */
+.landing-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 80px 20px 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.landing-badge {
+  background: rgba(139, 92, 246, 0.15);
+  border: 1px solid var(--accent-purple-glow);
+  color: var(--accent-purple);
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.landing-title {
+  font-size: 3.8rem;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.landing-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  max-width: 750px;
+  margin-bottom: 36px;
+}
+
+.landing-cta-group {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 50px;
+}
+
+.landing-preview-card {
+  width: 100%;
+  max-width: 800px;
+  padding: 24px;
+}
+
+.preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-glass);
+  margin-bottom: 20px;
+}
+
+.preview-dots span {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 6px;
+  background: rgba(255,255,255,0.2);
+}
+
+.preview-badge {
+  color: var(--accent-cyan);
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.preview-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.stat-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.stat-icon {
+  font-size: 1.8rem;
+}
+
+.preview-heatmap-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mini-heatmap {
+  display: flex;
+  gap: 8px;
+}
+
+.h-cell {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.h-cell.high { background: rgba(239, 68, 68, 0.25); color: var(--accent-rose); border: 1px solid var(--accent-rose); }
+.h-cell.med { background: rgba(245, 158, 11, 0.25); color: var(--accent-amber); border: 1px solid var(--accent-amber); }
+.h-cell.low { background: rgba(6, 182, 212, 0.25); color: var(--accent-cyan); border: 1px solid var(--accent-cyan); }
+
+.landing-countries {
+  max-width: 1100px;
+  margin: 40px auto;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.country-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.country-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-glass);
+  border-radius: 14px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.country-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-purple);
+}
+
+.country-card .flag {
+  font-size: 2.2rem;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.landing-features {
+  max-width: 1100px;
+  margin: 80px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-top: 36px;
+}
+
+.feature-card {
+  padding: 28px;
+  text-align: left;
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+}
+
+.landing-footer-cta {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(180deg, transparent, rgba(139, 92, 246, 0.08));
+}
+
+/* ==========================================================================
+   Main Application App Layout Shell
+   ========================================================================== */
+.app-shell {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.app-sidebar {
+  width: 260px;
+  background: rgba(15, 23, 42, 0.95);
+  border-right: 1px solid var(--border-glass);
+  display: flex;
+  flex-direction: column;
+  padding: 20px 16px;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.logo-icon {
+  font-size: 1.8rem;
+}
+
+.logo-text {
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nav-item:hover, .nav-item.active {
+  background: rgba(139, 92, 246, 0.15);
+  color: #fff;
+  border-left: 3px solid var(--accent-purple);
+}
+
+.app-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.top-navbar {
+  height: 64px;
+  border-bottom: 1px solid var(--border-glass);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  background: rgba(11, 15, 25, 0.8);
+}
+
+.top-stats {
+  display: flex;
+  gap: 16px;
+}
+
+.main-viewport {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+/* ==========================================================================
+   Onboarding Modal Overlay & Terminal
+   ========================================================================== */
+.onboarding-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(11, 15, 25, 0.9);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.onboarding-card {
+  width: 100%;
+  max-width: 650px;
+  padding: 36px;
+}
+
+.step-pane {
+  display: none;
+}
+
+.step-pane.active {
+  display: block;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-glass);
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.difficulty-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.diff-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border-glass);
+  border-radius: 12px;
+  padding: 14px;
+  cursor: pointer;
+}
+
+.diff-card.selected {
+  border-color: var(--accent-purple);
+  background: rgba(139, 92, 246, 0.15);
+}
+
+.agent-terminal {
+  background: #000;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 16px;
+  height: 180px;
+  overflow-y: auto;
+  margin-bottom: 16px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: #10b981;
+}
+
+.progress-bar-container {
+  height: 8px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent-purple), var(--accent-cyan));
+  transition: width 0.3s ease;
+}
+
+/* ==========================================================================
+   Duolingo Quest Map & Active Recall Styles
+   ========================================================================== */
+.quest-map-container {
+  position: relative;
+  height: 480px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.quest-path-svg {
+  position: absolute;
+  top: 0; left: 0;
+}
+
+.nodes-layer {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+}
+
+.node-item {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.node-circle {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-purple), #6d28d9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  box-shadow: 0 8px 20px var(--accent-purple-glow);
+  transition: transform 0.2s ease;
+}
+
+.node-item:hover .node-circle {
+  transform: scale(1.15);
+}
+
+.node-title {
+  margin-top: 8px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.quiz-modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quiz-modal {
+  width: 100%;
+  max-width: 550px;
+  padding: 30px;
+}
+
+.quiz-opt-btn {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 10px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border-glass);
+  border-radius: 12px;
+  color: #fff;
+  font-size: 1rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.quiz-opt-btn:hover {
+  background: rgba(139, 92, 246, 0.2);
+  border-color: var(--accent-purple);
+}
+
+/* Flashcard 3D */
+.flashcard-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.flashcard {
+  width: 480px;
+  height: 280px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .app-shell { flex-direction: column; }
+  .app-sidebar { width: 100%; height: auto; }
+  .landing-title { font-size: 2.5rem; }
+}

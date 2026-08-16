@@ -1,0 +1,13 @@
+{
+  "name": "stud.io",
+  "version": "1.0.0",
+  "description": "Gamified Learning, Pattern Intelligence & NeuroAdapt Neural Platform for Students Worldwide",
+  "main": "app.js",
+  "scripts": {
+    "start": "npx http-server ./ -p 3000",
+    "dev": "npx http-server ./ -p 3000 -c-1"
+  },
+  "keywords": ["education", "active-recall", "duolingo", "notebooklm", "pomodoro", "syllabi", "ai"],
+  "author": "stud.io Team",
+  "license": "MIT"
+}
