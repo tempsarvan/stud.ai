@@ -10,13 +10,162 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
   
-  <!-- CSS Stylesheet -->
-  <link rel="stylesheet" href="styles.css" />
+  <!-- Critical Embedded CSS Stylesheet to prevent white screen / unstyled FOUC -->
+  <style>
+    :root {
+      --bg-dark: #0b0f19;
+      --bg-card: rgba(30, 41, 59, 0.7);
+      --bg-card-hover: rgba(51, 65, 85, 0.8);
+      --border-glass: rgba(255, 255, 255, 0.08);
+
+      --accent-purple: #8b5cf6;
+      --accent-purple-glow: rgba(139, 92, 246, 0.4);
+      --accent-cyan: #06b6d4;
+      --accent-emerald: #10b981;
+      --accent-amber: #f59e0b;
+      --accent-rose: #ef4444;
+
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+
+      --font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'Fira Code', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-family);
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.5;
+    }
+
+    /* Glassmorphism Panels */
+    .glass-panel {
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-glass);
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Typography & Utility Gradients */
+    .gradient-text {
+      background: linear-gradient(135deg, var(--accent-purple), var(--accent-cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Buttons */
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-purple), #7c3aed);
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 15px var(--accent-purple-glow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(139, 92, 246, 0.6);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-main);
+      border: 1px solid var(--border-glass);
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .btn-large {
+      padding: 16px 32px;
+      font-size: 1.1rem;
+    }
+
+    .btn-small {
+      padding: 8px 16px;
+      font-size: 0.85rem;
+    }
+
+    .full-width {
+      width: 100%;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .landing-hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 80px 20px 40px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .landing-badge {
+      background: rgba(139, 92, 246, 0.15);
+      border: 1px solid var(--accent-purple-glow);
+      color: var(--accent-purple);
+      padding: 8px 18px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .landing-title {
+      font-size: 3.8rem;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .landing-subtitle {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      max-width: 750px;
+      margin-bottom: 36px;
+    }
+
+    .landing-cta-group {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 50px;
+    }
+  </style>
+
+  <!-- External Stylesheet Link -->
+  <link rel="stylesheet" href="styles.css?v=3" />
 </head>
 <body>
-  <!-- Container for Landing Page vs App View Shell -->
+  <!-- Root App Shell Container -->
   <div id="app-root">
-    <section class="landing-hero" style="min-height: 80vh; justify-content: center;">
+    <section class="landing-hero">
       <div class="landing-badge">✨ Powered by Pattern Intelligence & NeuroAdapt™ Neural Engine</div>
       <h1 class="landing-title">
         The Only Study App <br/>
@@ -24,54 +173,18 @@
       </h1>
       <p class="landing-subtitle">
         Pre-downloaded past paper patterns, NotebookLM dual-host podcasts, Duolingo-style quest tracks, 
-        and active recall built for students worldwide.
+        and active recall built for students in the USA, India, UK, Pakistan, China, IB & beyond.
       </p>
+
       <div class="landing-cta-group">
-        <button onclick="window.studioApp && window.studioApp.openOnboardingModal()" class="btn-primary btn-large">
+        <button id="btn-launch-fallback" onclick="window.studioApp && window.studioApp.openOnboardingModal()" class="btn-primary btn-large">
           🚀 Launch stud.io (Free)
         </button>
       </div>
     </section>
   </div>
 
-  <!-- Database & Vector Engine -->
-  <script src="data/syllabi.js"></script>
-  <script src="data/pastPapers.js"></script>
-  <script src="data/podcasts.js"></script>
-  <script src="data/duolingoQuests.js"></script>
-  <script src="data/flashcards.js"></script>
-  <script src="data/extracurricular.js"></script>
-
-  <!-- Core Core DB & Vector -->
-  <script src="db/database.js"></script>
-  <script src="db/vectorEngine.js"></script>
-
-  <!-- NeuroAdapt Neural Engine -->
-  <script src="neuro/neuroFeatureVector.js"></script>
-  <script src="neuro/neuroNet.js"></script>
-  <script src="neuro/neuroNotesAnalyzer.js"></script>
-
-  <!-- Agents & Audio -->
-  <script src="agents/agentCluster.js"></script>
-  <script src="agents/feynmanAgent.js"></script>
-  <script src="audio/audioSynth.js"></script>
-  <script src="audio/soundscapeSynth.js"></script>
-
-  <!-- Application Modules -->
-  <script src="modules/landingPage.js"></script>
-  <script src="modules/onboarding.js"></script>
-  <script src="modules/neuroDashboard.js"></script>
-  <script src="modules/studentNotes.js"></script>
-  <script src="modules/patternAnalyzer.js"></script>
-  <script src="modules/notebookLM.js"></script>
-  <script src="modules/duolingoTrack.js"></script>
-  <script src="modules/activeRecall.js"></script>
-  <script src="modules/pomodoro.js"></script>
-  <script src="modules/examSimulator.js"></script>
-  <script src="modules/digitalVault.js"></script>
-  <script src="modules/extracurricular.js"></script>
-
-  <!-- Central App Router & Controller -->
-  <script src="app.js"></script>
+  <!-- Unified Bundle Script -->
+  <script src="bundle.js"></script>
 </body>
 </html>
