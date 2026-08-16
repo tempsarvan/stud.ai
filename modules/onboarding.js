@@ -1,23 +1,23 @@
 /**
- * stud.io Onboarding & Multi-Agent Scanning Gateway Controller (WWDC27 Edition)
+ * stud.io Onboarding & Multi-Agent Scanning Gateway Controller (WWDC27 Neurological Edition)
  */
 class OnboardingModule {
   renderOnboarding(containerEl, defaultCountry = "USA", onComplete) {
     const I = window.StudioIcons || {};
     this.selectedCountry = defaultCountry;
     this.selectedBoard = "ap_calc_bc";
-    this.selectedDifficulty = "Time Management & Complex Problem Solving";
+    this.selectedDifficulty = "Time Management & Speed";
 
     containerEl.innerHTML = `
-      <div class="onboarding-overlay glass-panel">
+      <div class="onboarding-overlay">
         <div class="onboarding-card glass-panel">
           <div class="onboarding-header">
             <div class="onboarding-logo-badge">
-              ${I.rocket ? I.rocket("icon-purple", 22) : ""}
+              ${I.rocket ? I.rocket("icon-purple", 20) : ""}
               <span>stud.io Agent Setup</span>
             </div>
             <h2>Welcome to <span class="gradient-text">stud.io</span></h2>
-            <p>Personalize your multi-agent AI study engine in 3 simple steps.</p>
+            <p>Personalize your cognitive multi-agent study engine in 3 simple steps.</p>
           </div>
 
           <div id="onboarding-step-content">
@@ -32,6 +32,7 @@ class OnboardingModule {
               </div>
 
               <h3>Select Educational System & Syllabus</h3>
+              <p class="step-desc">Our multi-agent cluster automatically matches past paper patterns for your regional curriculum.</p>
               
               <div class="form-group">
                 <label>Country / Region:</label>
@@ -70,7 +71,7 @@ class OnboardingModule {
               </div>
 
               <h3>What Do You Struggle With The Most?</h3>
-              <p class="step-desc">Our NeuroAdapt Engine will dynamically tailor your daily quest cards based on this focus area.</p>
+              <p class="step-desc">Our NeuroAdapt Engine dynamically calibrates your daily quest cards based on your primary cognitive hurdle.</p>
               
               <div class="difficulty-grid">
                 <div class="diff-card selected" data-diff="Time Management & Speed">
@@ -139,7 +140,7 @@ class OnboardingModule {
                   <span class="terminal-title">AgentCluster Orchestrator Terminal</span>
                 </div>
                 <div class="terminal-logs" id="terminal-log-output">
-                  <code>[System] Initializing stud.io Multi-Agent Engine...</code>
+                  <div><code>[System] Initializing stud.io Multi-Agent Engine...</code></div>
                 </div>
               </div>
 
@@ -178,18 +179,21 @@ class OnboardingModule {
 
     // Step navigation
     containerEl.querySelector("#btn-next-1").addEventListener("click", () => {
+      if (window.studioSoundFX) window.studioSoundFX.playTap();
       this.selectedBoard = boardSelect.value;
       containerEl.querySelector("#step-1").classList.remove("active");
       containerEl.querySelector("#step-2").classList.add("active");
     });
 
     containerEl.querySelector("#btn-back-2").addEventListener("click", () => {
+      if (window.studioSoundFX) window.studioSoundFX.playTap();
       containerEl.querySelector("#step-2").classList.remove("active");
       containerEl.querySelector("#step-1").classList.add("active");
     });
 
     containerEl.querySelectorAll(".diff-card").forEach(card => {
       card.addEventListener("click", () => {
+        if (window.studioSoundFX) window.studioSoundFX.playTap();
         containerEl.querySelectorAll(".diff-card").forEach(c => c.classList.remove("selected"));
         card.classList.add("selected");
         this.selectedDifficulty = card.getAttribute("data-diff");
@@ -197,6 +201,7 @@ class OnboardingModule {
     });
 
     containerEl.querySelector("#btn-next-2").addEventListener("click", async () => {
+      if (window.studioSoundFX) window.studioSoundFX.playTap();
       containerEl.querySelector("#step-2").classList.remove("active");
       containerEl.querySelector("#step-3").classList.add("active");
 
@@ -216,10 +221,13 @@ class OnboardingModule {
       }
 
       progressFill.style.width = "100%";
-      containerEl.querySelector("#btn-launch-dashboard").classList.remove("hidden");
+      const launchBtn = containerEl.querySelector("#btn-launch-dashboard");
+      launchBtn.classList.remove("hidden");
+      if (window.studioSoundFX) window.studioSoundFX.playLevelUp();
     });
 
     containerEl.querySelector("#btn-launch-dashboard").addEventListener("click", () => {
+      if (window.studioSoundFX) window.studioSoundFX.playTap();
       onComplete({
         country: this.selectedCountry,
         board: this.selectedBoard,
